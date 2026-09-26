@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ლევანი & ნინო — საქორწილო მოსაწვევი</title>
+  <meta name="description" content="საქორწილო მოსაწვევი — MOMENTLY-ის დემო.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#3d0f1a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+Georgian:wght@300;400;500;600&family=Noto+Serif+Georgian:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-locked">
+
+<!--
+  All texts, names, dates, places and photos come from the CONFIG object at the top of script.js.
+  Elements with data-c="path" are filled from CONFIG automatically.
+-->
+
+<!-- ============ SVG sprite: wax seal + icons ============ -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="wax" cx="38%" cy="32%" r="75%">
+      <stop offset="0" stop-color="#a23447"/><stop offset=".5" stop-color="#6e1c2c"/><stop offset="1" stop-color="#3b0c17"/>
+    </radialGradient>
+    <radialGradient id="waxIn" cx="60%" cy="65%" r="70%">
+      <stop offset="0" stop-color="#8a2638"/><stop offset="1" stop-color="#5a1523"/>
+    </radialGradient>
+    <linearGradient id="waxRim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e2798a" stop-opacity=".55"/><stop offset=".5" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#1a0308" stop-opacity=".6"/>
+    </linearGradient>
+  </defs>
+  <symbol id="seal-art" viewBox="0 0 120 120">
+    <path id="sealBlob" fill="url(#wax)" d="M60 6a54 54 0 1 1 0 108a54 54 0 1 1 0-108z"/>
+    <circle cx="60" cy="60" r="38" fill="url(#waxIn)"/>
+    <circle cx="60" cy="60" r="38" fill="none" stroke="url(#waxRim)" stroke-width="3.2"/>
+    <circle cx="60" cy="60" r="31" fill="none" stroke="#2a060d" stroke-opacity=".35" stroke-width=".8" stroke-dasharray="1.5 3"/>
+    <g class="seal-mono" text-anchor="middle">
+      <text x="60.8" y="69.8" font-family="Noto Serif Georgian, serif" font-size="25" font-weight="500" fill="#e8909d" fill-opacity=".35" id="sealTextLight">ლ·ნ</text>
+      <text x="60" y="69" font-family="Noto Serif Georgian, serif" font-size="25" font-weight="500" fill="#2a060d" fill-opacity=".55" id="sealText">ლ·ნ</text>
+    </g>
+    <ellipse cx="42" cy="34" rx="12" ry="6" fill="#fff" fill-opacity=".14" transform="rotate(-30 42 34)"/>
+  </symbol>
+  <symbol id="corner" viewBox="0 0 160 160">
+    <g fill="none" stroke="currentColor" stroke-width=".9" stroke-linecap="round">
+      <path d="M6 150 V64 Q6 6 64 6 H150"/>
+      <path d="M14 150 V70 Q14 14 70 14 H150" opacity=".45"/>
+      <path d="M24 88 C 30 62, 40 46, 60 34 S 92 22, 110 24"/>
+      <path d="M36 62 c 9 -2 15 -8 17 -18 c -9 2 -15 8 -17 18z M52 44 c 10 0 17 -5 21 -14 c -10 0 -17 5 -21 14z M72 32 c 9 2 17 -1 23 -8 c -9 -2 -17 1 -23 8z"/>
+      <path d="M30 76 c -2 -9 -8 -15 -18 -17 c 2 9 8 15 18 17z M40 56 c -3 -8 -9 -13 -18 -14 c 3 8 9 13 18 14z" opacity=".7"/>
+      <circle cx="112" cy="24" r="2.2"/><circle cx="24" cy="92" r="2.2"/><circle cx="34" cy="34" r="3.2"/><circle cx="34" cy="34" r="1" fill="currentColor"/>
+    </g>
+  </symbol>
+  <symbol id="orn" viewBox="0 0 150 20">
+    <g fill="none" stroke="currentColor" stroke-width=".9" stroke-linecap="round">
+      <path d="M2 10 H56 M94 10 H148"/><path d="M75 2 L83 10 L75 18 L67 10Z"/><path d="M75 6 L79 10 L75 14 L71 10Z" fill="currentColor"/>
+      <circle cx="61" cy="10" r="1.6"/><circle cx="89" cy="10" r="1.6"/>
+    </g>
+  </symbol>
+  <symbol id="i-church" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"><path d="M12 1.8v3M10.7 3.1h2.6"/><path d="M9.2 9.2 12 5l2.8 4.2"/><path d="M9.6 9.2h4.8v3.6H9.6z"/><path d="M4 21.5v-7l5.6-1.7h4.8L20 14.5v7z"/><path d="M10.4 21.5v-3.2a1.6 1.6 0 0 1 3.2 0v3.2M2.5 21.5h19"/></g></symbol>
+  <symbol id="i-glass" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5.2 3.5 3.4 10a3.2 3.2 0 0 0 6 1.7L10.2 5z"/><path d="m6.3 13.3-1.1 6.5M3.2 19.4l4 .7"/><path d="M18.8 3.5 20.6 10a3.2 3.2 0 0 1-6 1.7L13.8 5z"/><path d="m17.7 13.3 1.1 6.5M20.8 19.4l-4 .7"/><path d="M12 1.5v2M9.8 2.3l.8 1.2M14.2 2.3l-.8 1.2"/></g></symbol>
+  <symbol id="i-dinner" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12.5" r="6"/><circle cx="12" cy="12.5" r="3.6" opacity=".6"/><path d="M2.6 3.5v5a1.6 1.6 0 0 0 3.2 0v-5M4.2 3.5v17M21 3.5c-2 0-2.8 2.4-2.8 5.5 0 1.6.9 2.3 2.8 2.3zM21 3.5v17"/></g></symbol>
+  <symbol id="i-music" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/><path d="M9 9l11-2"/></g></symbol>
+  <symbol id="i-rings" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><circle cx="8.8" cy="14.5" r="5.8"/><circle cx="15.2" cy="14.5" r="5.8"/><path d="m6.5 6.2 2.3-2.8 2.3 2.8-2.3 2.3z"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9.5" r="2.6"/></g></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="m12 13.2.8 1.6 1.7.2-1.3 1.2.4 1.7-1.6-.9-1.6.9.4-1.7-1.3-1.2 1.7-.2z"/></g></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 16.5v-4.2l2-5a2 2 0 0 1 1.9-1.3h9.2a2 2 0 0 1 1.9 1.3l2 5v4.2z"/><path d="M3.5 12.3h17"/><circle cx="7.3" cy="16.5" r="1.8"/><circle cx="16.7" cy="16.5" r="1.8"/></g></symbol>
+  <symbol id="i-child" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5.2" r="2.7"/><path d="M8 21v-5.5L6 11l3.2-1.8h5.6L18 11l-2 4.5V21M12 15v6"/></g></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5a2 2 0 0 1 2-2h2.2L9 4h6l1.8 2.5H19a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.8"/></g></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="8" width="17" height="4" rx="1"/><path d="M5 12v8.5h14V12M12 8v12.5"/><path d="M12 8C10.5 4.5 6.5 4 6.8 6.4 7 8 12 8 12 8zM12 8c1.5-3.5 5.5-4 5.2-1.6C17 8 12 8 12 8z"/></g></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5"/><path d="M15.5 8.5V6.5a2 2 0 0 0-2-2h-7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2"/></g></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8"/></symbol>
+</svg>
+
+<!-- ============ 1. ENVELOPE INTRO ============ -->
+<section class="intro" id="intro" aria-label="მოსაწვევის კონვერტი">
+  <canvas class="intro__fx" id="introFx" aria-hidden="true"></canvas>
+  <div class="intro__vignette" aria-hidden="true"></div>
+
+  <header class="intro__top">
+    <p class="intro__mono" aria-hidden="true"><span data-c="couple.monogram.0"></span><i>&amp;</i><span data-c="couple.monogram.1"></span></p>
+    <p class="intro__eyebrow" data-c="envelope.eyebrow"></p>
+  </header>
+
+  <div class="stage" id="stage">
+    <div class="env-drop" id="envDrop">
+      <div class="env-float" id="envFloat">
+        <button class="envelope" id="envelope" type="button" aria-describedby="introHint">
+          <span class="sr-only">კონვერტის გახსნა</span>
+          <span class="env" id="env" aria-hidden="true">
+            <span class="env__back"></span>
+            <span class="letter" id="letter">
+              <span class="letter__frame"></span>
+              <span class="letter__kicker" data-c="envelope.letterLine"></span>
+              <span class="letter__names"><span data-c="couple.one"></span><i>&amp;</i><span data-c="couple.two"></span></span>
+              <span class="letter__date" data-c="dateLabel"></span>
+            </span>
+            <span class="env__pocket" id="pocket">
+              <span class="fold fold--l"><span></span></span>
+              <span class="fold fold--r"><span></span></span>
+              <span class="fold fold--b"><span></span></span>
+              <span class="env__to"><small data-c="envelope.toLabel"></small><b id="recipient"></b></span>
+            </span>
+            <span class="flap" id="flap">
+              <span class="flap__face flap__face--out"></span>
+              <span class="flap__face flap__face--in"></span>
+            </span>
+            <span class="seal" id="seal">
+              <span class="seal__glow"></span>
+              <span class="seal__half seal__half--l" id="sealL"><svg viewBox="0 0 120 120"><use href="#seal-art"/></svg></span>
+              <span class="seal__half seal__half--r" id="sealR"><svg viewBox="0 0 120 120"><use href="#seal-art"/></svg></span>
+              <svg class="seal__crack" viewBox="0 0 120 120"><path id="crack" d="M62 0 56 22 67 40 55 60 66 77 58 96 64 120"/></svg>
+            </span>
+            <span class="env__sheen" id="sheen"></span>
+          </span>
+        </button>
+      </div>
+      <span class="env-shadow" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <p class="intro__hint" id="introHint"><span class="intro__tap" aria-hidden="true"></span><span data-c="envelope.hint"></span></p>
+</section>
+
+<!-- ============ 2. THE INVITATION ============ -->
+<main class="invite" id="invite" aria-hidden="true">
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <canvas class="hero__fx" id="heroFx" aria-hidden="true"></canvas>
+    <div class="hero__frame" aria-hidden="true"></div>
+    <svg class="corner corner--tl" aria-hidden="true" data-parallax="-0.08"><use href="#corner"/></svg>
+    <svg class="corner corner--tr" aria-hidden="true" data-parallax="-0.08"><use href="#corner"/></svg>
+    <svg class="corner corner--bl" aria-hidden="true"><use href="#corner"/></svg>
+    <svg class="corner corner--br" aria-hidden="true"><use href="#corner"/></svg>
+
+    <div class="hero__inner" data-parallax="0.18">
+      <p class="hero__eyebrow hi" style="--d:.3s" data-c="hero.eyebrow"></p>
+      <h1 class="hero__names" id="heroTitle" tabindex="-1">
+        <span class="hi" style="--d:.5s" data-c="couple.one"></span>
+        <span class="hero__amp foil hi" style="--d:.75s" aria-label="და">&amp;</span>
+        <span class="hi" style="--d:.95s" data-c="couple.two"></span>
+      </h1>
+      <p class="hero__date hi" style="--d:1.25s" data-c="dateLabel"></p>
+      <p class="hero__meta hi" style="--d:1.45s"><span data-c="dateLong"></span> · <span data-c="city"></span></p>
+    </div>
+    <a class="scroll-cue hi" style="--d:2s" href="#invitation"><span></span>ქვემოთ</a>
+  </section>
+
+  <!-- Invitation text -->
+  <section class="sec" id="invitation">
+    <div class="wrap center letter-text">
+      <p class="eyebrow rv" data-c="invitation.eyebrow"></p>
+      <svg class="orn rv" style="--d:.1s" aria-hidden="true"><use href="#orn"/></svg>
+      <p class="rv" style="--d:.2s" data-c="invitation.text"></p>
+      <p class="sign rv" style="--d:.35s"><span data-c="invitation.signLabel"></span><b data-c="invitation.families"></b></p>
+    </div>
+  </section>
+
+  <!-- Countdown -->
+  <section class="sec count" id="countdown">
+    <div class="wrap center">
+      <p class="eyebrow rv" data-c="countdown.eyebrow"></p>
+      <h2 class="h2 rv" style="--d:.1s" data-c="countdown.title"></h2>
+      <div class="count__grid rv" style="--d:.2s" id="countGrid" role="timer" aria-live="off">
+        <div class="count__cell"><span class="count__num" data-unit="d"><span>00</span></span><span class="count__lbl">დღე</span></div>
+        <div class="count__cell"><span class="count__num" data-unit="h"><span>00</span></span><span class="count__lbl">საათი</span></div>
+        <div class="count__cell"><span class="count__num" data-unit="m"><span>00</span></span><span class="count__lbl">წუთი</span></div>
+        <div class="count__cell"><span class="count__num" data-unit="s"><span>00</span></span><span class="count__lbl">წამი</span></div>
+      </div>
+      <p class="count__done" id="countDone" hidden data-c="countdown.done"></p>
+      <p class="count__date rv" style="--d:.3s" data-c="dateLong"></p>
+      <button class="btn btn--line count__cal rv" style="--d:.4s" type="button" id="calBtn"><svg class="i" aria-hidden="true"><use href="#i-cal"/></svg><span>კალენდარში დამატება</span></button>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="sec sec--tint" id="timeline">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow rv">დღის განრიგი</p>
+        <h2 class="h2 rv" style="--d:.1s" data-c="timelineTitle"></h2>
+      </div>
+      <div class="tl" id="tl">
+        <div class="tl__line" aria-hidden="true"><i id="tlFill"></i></div>
+        <!-- items rendered from CONFIG.timeline -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue -->
+  <section class="sec" id="venue">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow rv">ადგილი</p>
+        <h2 class="h2 rv" style="--d:.1s">სად გელოდებით</h2>
+      </div>
+      <article class="venue rv" style="--d:.15s">
+        <div class="venue__media">
+          <!-- Venue photo: set CONFIG.venue.image (e.g. "assets/venue.jpg") -->
+          <img id="venueImg" alt="" loading="lazy" decoding="async" data-parallax="0.06">
+        </div>
+        <div class="venue__body">
+          <h3 class="venue__name" data-c="venue.name"></h3>
+          <p class="venue__addr"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span data-c="venue.address"></span></p>
+          <p class="venue__text" data-c="venue.text"></p>
+          <div class="venue__actions">
+            <a class="btn btn--wine" id="mapBtn" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>გახსენი Google Maps-ში</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="sec sec--tint" id="gallery">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow rv">გალერეა</p>
+        <h2 class="h2 rv" style="--d:.1s" data-c="galleryTitle"></h2>
+      </div>
+      <div class="gallery" id="galleryGrid"><!-- rendered from CONFIG.gallery --></div>
+    </div>
+  </section>
+
+  <!-- Dress code + notes -->
+  <section class="sec" id="details">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow rv">დეტალები</p>
+        <h2 class="h2 rv" style="--d:.1s" data-c="dressCode.title"></h2>
+      </div>
+      <div class="dress">
+        <p class="dress__value rv" data-c="dressCode.value"></p>
+        <p class="dress__text rv" style="--d:.1s" data-c="dressCode.text"></p>
+        <ul class="swatches rv" style="--d:.2s" id="swatches"></ul>
+        <p class="dress__avoid rv" style="--d:.3s" data-c="dressCode.avoid"></p>
+      </div>
+      <div class="notes" id="notes"><!-- rendered from CONFIG.notes --></div>
+    </div>
+  </section>
+
+  <!-- Gift -->
+  <section class="sec sec--tint" id="gift">
+    <div class="wrap gift">
+      <div class="gift__icon rv"><svg class="i" aria-hidden="true"><use href="#i-gift"/></svg></div>
+      <h2 class="h2 rv" style="--d:.1s" data-c="gift.title"></h2>
+      <p class="rv" style="--d:.2s" data-c="gift.text"></p>
+      <div class="iban rv" style="--d:.3s" id="iban">
+        <div><small data-c="gift.accountLabel"></small><code id="ibanValue" data-c="gift.account"></code></div>
+        <button type="button" id="copyIban" aria-label="ანგარიშის ნომრის დაკოპირება"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="sec" id="rsvp">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow rv">RSVP</p>
+        <h2 class="h2 rv" style="--d:.1s" data-c="rsvp.title"></h2>
+        <p class="rsvp-deadline rv" style="--d:.2s" data-c="rsvp.deadline"></p>
+      </div>
+
+      <div class="rsvp-card rv" style="--d:.25s">
+        <form class="form" id="rsvpForm" novalidate>
+          <label class="field">
+            <span>სახელი და გვარი</span>
+            <input type="text" name="name" autocomplete="name" placeholder="მაგ. ანა ბერიძე" required>
+            <small class="err" data-err="name"></small>
+          </label>
+
+          <fieldset class="field">
+            <legend>დაგვესწრებით?</legend>
+            <div class="choice">
+              <label><input type="radio" name="attending" value="yes"><span>სიამოვნებით მოვალ</span></label>
+              <label><input type="radio" name="attending" value="no"><span>სამწუხაროდ, ვერ მოვალ</span></label>
+            </div>
+            <small class="err" data-err="attending"></small>
+          </fieldset>
+
+          <div class="field field--guests" id="guestsField">
+            <span id="guestsLabel">სტუმრების რაოდენობა (თქვენი ჩათვლით)</span>
+            <div class="stepper" role="group" aria-labelledby="guestsLabel">
+              <button type="button" data-step="-1" aria-label="შემცირება">−</button>
+              <output id="guests" aria-live="polite">1</output>
+              <button type="button" data-step="1" aria-label="გაზრდა">+</button>
+            </div>
+          </div>
+
+          <label class="field">
+            <span>სურვილი ან შეტყობინება <small>(არასავალდებულო)</small></span>
+            <textarea name="message" rows="4" placeholder="დაგვიტოვეთ თბილი სიტყვები…"></textarea>
+          </label>
+
+          <button class="btn btn--wine form__submit" type="submit" id="rsvpSubmit">პასუხის გაგზავნა</button>
+        </form>
+
+        <div class="success" id="rsvpSuccess" hidden role="status" aria-live="polite">
+          <svg viewBox="0 0 92 92" aria-hidden="true"><circle cx="46" cy="46" r="44" transform="rotate(-90 46 46)"/><path d="M28 47 41 60 65 34"/></svg>
+          <h3 id="successTitle"></h3>
+          <p id="successText"></p>
+          <button class="btn btn--line" type="button" id="rsvpAgain">პასუხის შეცვლა</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="foot">
+    <div class="wrap">
+      <svg class="foot__seal" viewBox="0 0 120 120" aria-hidden="true"><use href="#seal-art"/></svg>
+      <p class="foot__names"><span data-c="couple.one"></span><i>&amp;</i><span data-c="couple.two"></span></p>
+      <p class="foot__date" data-c="dateLabel"></p>
+      <a class="foot__by" id="madeBy" href="../../index.html">Made by <b>MOMENTLY</b></a>
+    </div>
+  </footer>
+</main>
+
+<!-- Floating controls -->
+<button class="music" id="musicBtn" type="button" aria-pressed="false" aria-label="მუსიკის ჩართვა"><svg class="i music__note" aria-hidden="true"><use href="#i-music"/></svg><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button>
+<a class="fab" id="fab" href="#rsvp">დადასტურება</a>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="ფოტო" aria-hidden="true">
+  <img id="lbImg" alt="">
+  <button class="lb-close" type="button" id="lbClose" aria-label="დახურვა">✕</button>
+  <button class="lb-prev" type="button" id="lbPrev" aria-label="წინა">‹</button>
+  <button class="lb-next" type="button" id="lbNext" aria-label="შემდეგი">›</button>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LUKA — Class of 2026</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#08090c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Georgian:wdth,wght@62.5..100,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    :root {
+      --black: #08090c; --white: #f4f5f7; --blue: #2f5bd3; --blue-deep: #0d1f4a; --metal: #b9c2cf; --grey: #8a919c;
+      --bg: var(--black); --ink: var(--white); --accent: var(--blue);
+      --display: "Anton", "Noto Sans Georgian", Impact, sans-serif;
+      --body: "Inter", "Noto Sans Georgian", system-ui, sans-serif;
+      --mono: "JetBrains Mono", "Noto Sans Georgian", monospace;
+      --loader-bg: var(--black); --loader-ink: var(--white);
+      --nav-ink: var(--white); --nav-bg: rgba(8, 9, 12, .82);
+      --top-bg: var(--white); --top-ink: var(--black); --top-line: transparent;
+      --cta-bg: var(--blue-deep); --cta-ink: var(--white); --cta-accent: var(--metal); --cta-btn-bg: var(--white); --cta-btn-ink: var(--black);
+    }
+    .wrap { width: min(1240px, 100% - 40px); margin-inline: auto; }
+    .mono { font: 400 .74rem/1.4 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--metal); }
+    html:lang(ka) .mono { letter-spacing: .04em; font-size: .8rem; }
+    .big { font: 400 clamp(3rem, 8vw, 7rem)/.95 var(--display); text-transform: uppercase; letter-spacing: .01em; }
+    html:lang(ka) .big, html:lang(ka) .hero-name, html:lang(ka) .stat b, html:lang(ka) .j-title, html:lang(ka) .final h2 {
+      font-family: "Noto Sans Georgian", sans-serif; font-weight: 800; font-stretch: 62.5%; letter-spacing: 0;
+    }
+    html:lang(ka) .big { line-height: 1.1; font-size: clamp(2.6rem, 7vw, 6rem); }
+    .metal { background: linear-gradient(100deg, #7d8694 0%, #f4f5f7 35%, #9aa3b0 55%, #ffffff 75%, #8a919c 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    /* ---------- Loader ---------- */
+    .ld { width: min(320px, 70vw); }
+    .ld p { font: 400 .8rem var(--mono); letter-spacing: .3em; display: flex; justify-content: space-between; }
+    .ld i { display: block; height: 1px; background: rgba(255,255,255,.15); margin-top: 14px; position: relative; overflow: hidden; }
+    .ld i::after { content: ""; position: absolute; inset: 0; background: var(--white); transform-origin: left; animation: load 1.2s cubic-bezier(.7,0,.2,1) both; }
+    @keyframes load { from { transform: scaleX(0); } }
+
+    /* ---------- Hero ---------- */
+    .hero { position: relative; min-height: 100vh; min-height: 100svh; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
+    .hero-bg { position: absolute; inset: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; filter: grayscale(1) contrast(1.15) brightness(.8); transform: scale(1.15); transition: transform 4s cubic-bezier(.2,.7,.2,1); }
+    .loaded .hero-bg img { transform: scale(1.02); }
+    .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,9,12,.3), rgba(8,9,12,.1) 40%, rgba(13,31,74,.55) 75%, var(--black)); }
+    .grid-lines { position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: .5;
+      background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: calc(100% / 6) calc(100% / 4); }
+    .ring { position: absolute; z-index: 1; right: 8vw; top: 18vh; width: clamp(140px, 22vw, 300px); aspect-ratio: 1; border: 1px solid rgba(185,194,207,.35); border-radius: 50%; animation: spin 40s linear infinite; }
+    .ring::before, .ring::after { content: ""; position: absolute; background: rgba(185,194,207,.35); }
+    .ring::before { left: 50%; top: -20px; bottom: -20px; width: 1px; }
+    .ring::after { top: 50%; left: -20px; right: -20px; height: 1px; }
+    .ring i { position: absolute; top: -4px; left: 50%; width: 8px; height: 8px; margin-left: -4px; background: var(--blue); border-radius: 50%; box-shadow: 0 0 14px var(--blue); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .shutter { position: absolute; left: 0; right: 0; height: 50.5%; background: var(--black); z-index: 4; transition: transform 1.6s cubic-bezier(.8,0,.2,1) .1s; }
+    .shutter--t { top: 0; } .shutter--b { bottom: 0; }
+    .loaded .shutter--t { transform: translateY(-100%); } .loaded .shutter--b { transform: translateY(100%); }
+    .hero-top { position: absolute; z-index: 3; top: 110px; left: 0; right: 0; }
+    .hero-top .wrap { display: flex; justify-content: space-between; gap: 30px; align-items: flex-start; }
+    .tagline { font: 300 clamp(1.3rem, 2.6vw, 2.2rem)/1.25 var(--body); max-width: 13em; }
+    .tagline span { display: block; overflow: hidden; }
+    .tagline span > span { transform: translateY(110%); transition: transform 1.2s cubic-bezier(.2,.8,.2,1); }
+    .tagline span:nth-child(2) > span { transition-delay: .15s; color: var(--metal); }
+    .loaded .tagline span > span { transform: none; transition-delay: 1.5s; }
+    .loaded .tagline span:nth-child(2) > span { transition-delay: 1.7s; }
+    .hero-meta { text-align: right; opacity: 0; transition: opacity 1s 2s; }
+    .loaded .hero-meta { opacity: 1; }
+    .hero-name { position: relative; z-index: 3; font: 400 clamp(8rem, 31vw, 30rem)/.78 var(--display); text-align: center; letter-spacing: .02em; margin-bottom: -.06em; white-space: nowrap; }
+    html:lang(ka) .hero-name { font-size: clamp(5rem, 22vw, 20rem); line-height: 1.3; margin-bottom: 0; }
+    .hero-name .ch { display: inline-block; transform: translateY(100%); opacity: 0; }
+    .loaded .hero-name .ch { animation: rise 1.4s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(1s + var(--i) * .12s); }
+    @keyframes rise { to { transform: none; opacity: 1; } }
+
+    /* ---------- Journey ---------- */
+    .journey { padding: clamp(110px, 14vw, 170px) 0; }
+    .journey-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; margin-bottom: 70px; flex-wrap: wrap; }
+    .track { position: relative; height: 1px; background: rgba(255,255,255,.12); margin-bottom: 40px; }
+    .track i { position: absolute; inset: 0; background: linear-gradient(90deg, var(--metal), var(--blue)); transform-origin: left; transform: scaleX(0); transition: transform 2.4s cubic-bezier(.6,0,.2,1) .2s; }
+    .track.in i { transform: none; }
+    .track b { position: absolute; top: -4px; width: 9px; height: 9px; border-radius: 50%; background: var(--black); border: 1px solid var(--metal); }
+    .journey-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 40px); }
+    .j-img { aspect-ratio: 4 / 5; overflow: hidden; margin: 22px 0 24px; position: relative; }
+    .j-img img { filter: grayscale(1) contrast(1.1); transition: filter .8s, transform 1.4s cubic-bezier(.2,.8,.2,1); }
+    .j:hover .j-img img { filter: none; transform: scale(1.05); }
+    .j-title { font: 400 clamp(2.4rem, 4vw, 3.6rem)/1 var(--display); text-transform: uppercase; }
+    html:lang(ka) .j-title { font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1.15; }
+    .j p:last-child { color: var(--grey); margin-top: 14px; max-width: 26em; }
+    .j .num { color: var(--blue); }
+
+    /* ---------- Achievements ---------- */
+    .stats { padding: clamp(110px, 14vw, 170px) 0 clamp(80px, 10vw, 120px); border-top: 1px solid rgba(255,255,255,.08); background: radial-gradient(ellipse at 50% 120%, rgba(47,91,211,.25), transparent 60%); }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: center; margin-top: 70px; }
+    .stat b { display: block; font: 400 clamp(7rem, 16vw, 14rem)/1 var(--display); }
+    html:lang(ka) .stat b { font-family: var(--display); font-stretch: normal; }
+    .stat p { font: 500 clamp(1rem, 1.6vw, 1.3rem) var(--body); margin-top: 10px; }
+    .stat small { display: block; margin-top: 8px; }
+    .ticker { margin-top: clamp(80px, 10vw, 120px); overflow: hidden; border-block: 1px solid rgba(255,255,255,.1); padding: 22px 0; white-space: nowrap; }
+    .ticker div { display: inline-flex; gap: 50px; padding-right: 50px; animation: marquee 34s linear infinite; font: 400 clamp(1.4rem, 2.6vw, 2.2rem) var(--display); text-transform: uppercase; letter-spacing: .03em; }
+    html:lang(ka) .ticker div { font-family: "Noto Sans Georgian", sans-serif; font-weight: 700; font-stretch: 62.5%; }
+    .ticker span::after { content: "✦"; margin-left: 50px; color: var(--blue); }
+    @keyframes marquee { to { transform: translateX(-100%); } }
+
+    /* ---------- Collage ---------- */
+    .collage { background: var(--blue-deep); padding: clamp(110px, 14vw, 170px) 0; overflow: hidden; }
+    .collage-grid { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 80px; gap: 16px; margin-top: 70px; perspective: 1200px; }
+    .tile { position: relative; overflow: hidden; transform-style: preserve-3d; transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s; will-change: transform; }
+    .tile img { filter: grayscale(1) brightness(.85); transition: filter .6s, transform 1.2s; }
+    .js .tile.rv.in { transition: opacity 1.1s, transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s; transition-delay: 0s; }
+    .tile:hover { box-shadow: 0 30px 60px -20px rgba(0,0,0,.7); z-index: 2; }
+    .tile:hover img { filter: none; transform: scale(1.06); }
+    .tile span { position: absolute; left: 14px; bottom: 12px; font: 400 .72rem var(--mono); letter-spacing: .14em; text-transform: uppercase; background: var(--black); padding: 6px 10px; }
+    html:lang(ka) .tile span { letter-spacing: .03em; }
+    .t1 { grid-column: 1 / 6; grid-row: span 5; } .t2 { grid-column: 6 / 9; grid-row: span 3; } .t3 { grid-column: 9 / 13; grid-row: span 4; }
+    .t4 { grid-column: 6 / 9; grid-row: span 3; } .t5 { grid-column: 1 / 6; grid-row: span 3; } .t6 { grid-column: 9 / 13; grid-row: span 4; }
+
+    /* ---------- Quote ---------- */
+    .quote { padding: clamp(110px, 14vw, 170px) 0; text-align: center; }
+    .quote p { font: 300 clamp(1.6rem, 3.6vw, 2.8rem)/1.35 var(--body); max-width: 22em; margin: 0 auto 30px; }
+    .quote em { font-style: normal; color: var(--metal); }
+
+    /* ---------- Final ---------- */
+    .final { position: relative; min-height: 90vh; display: grid; place-items: center; text-align: center; overflow: hidden; border-top: 1px solid rgba(255,255,255,.08); }
+    .final::before { content: ""; position: absolute; width: 70vmin; height: 70vmin; border-radius: 50%; border: 1px solid rgba(185,194,207,.18); }
+    .final::after { content: ""; position: absolute; width: 50vmin; height: 50vmin; border-radius: 50%; background: radial-gradient(circle, rgba(47,91,211,.35), transparent 65%); filter: blur(20px); }
+    .final-in { position: relative; z-index: 2; padding: 100px 20px; }
+    .final h2 { font: 400 clamp(4rem, 13vw, 11rem)/.9 var(--display); text-transform: uppercase; }
+    html:lang(ka) .final h2 { font-size: clamp(3rem, 10vw, 8rem); line-height: 1.05; }
+    .next { margin-top: 36px; font: 300 clamp(1.6rem, 3.6vw, 2.8rem) var(--body); color: var(--metal); min-height: 1.4em; }
+    .next::after { content: ""; display: inline-block; width: 2px; height: 1em; margin-left: 6px; vertical-align: -.12em; background: var(--blue); animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    @media (max-width: 860px) {
+      .hero-top .wrap { flex-direction: column; }
+      .hero-meta { text-align: left; }
+      .ring { right: -40px; top: auto; bottom: 34vh; }
+      .journey-grid, .stats-grid { grid-template-columns: 1fr; }
+      .stats-grid { gap: 60px; }
+      .track { display: none; }
+      .collage-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 130px; gap: 10px; }
+      .collage-grid > * { grid-column: auto !important; grid-row: span 2 !important; }
+      .t1 { grid-row: span 3 !important; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="dm-loader" aria-hidden="true">
+  <div class="ld"><p><span>LUKA</span><span>2026</span></p><i></i></div>
+</div>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-bg"><img data-img="1498079022511-d15614cb1c02" data-eager data-t-attr="alt:alt.hero"></div>
+    <div class="grid-lines" aria-hidden="true"></div>
+    <canvas class="dm-fx" id="stars" aria-hidden="true" style="z-index:1"></canvas>
+    <div class="ring" aria-hidden="true"><i></i></div>
+    <div class="hero-top">
+      <div class="wrap">
+        <p class="tagline"><span><span data-t="hero.l1"></span></span><span><span data-t="hero.l2"></span></span></p>
+        <div class="hero-meta mono"><p data-t="hero.meta1"></p><p data-t="hero.meta2"></p></div>
+      </div>
+    </div>
+    <h1 class="hero-name" data-t="hero.name" data-split>LUKA</h1>
+    <div class="shutter shutter--t" aria-hidden="true"></div>
+    <div class="shutter shutter--b" aria-hidden="true"></div>
+  </section>
+
+  <!-- ============ JOURNEY ============ -->
+  <section class="journey wrap">
+    <header class="journey-head">
+      <h2 class="big rv" data-t="j.title"></h2>
+      <p class="mono rv" style="--d:.1s" data-t="j.label"></p>
+    </header>
+    <div class="track" id="track" aria-hidden="true"><i></i><b style="left:0"></b><b style="left:calc(33.33% + 7px)"></b><b style="left:calc(66.66% + 14px)"></b></div>
+    <div class="journey-grid">
+      <article class="j rv"><p class="mono num">01 — 2010 / 2022</p><div class="j-img"><img class="dm-img" data-img="1517486808906-6ca8b3f04846" data-w="800" data-sizes="(max-width: 860px) 100vw, 400px"></div><h3 class="j-title" data-t="j1.t"></h3><p data-t="j1.p"></p></article>
+      <article class="j rv" style="--d:.15s"><p class="mono num">02 — 2022 / 2026</p><div class="j-img"><img class="dm-img" data-img="1562774053-701939374585" data-w="800" data-sizes="(max-width: 860px) 100vw, 400px"></div><h3 class="j-title" data-t="j2.t"></h3><p data-t="j2.p"></p></article>
+      <article class="j rv" style="--d:.3s"><p class="mono num">03 — 2026</p><div class="j-img"><img class="dm-img" data-img="1541339907198-e08756dedf3f" data-w="800" data-sizes="(max-width: 860px) 100vw, 400px"></div><h3 class="j-title" data-t="j3.t"></h3><p data-t="j3.p"></p></article>
+    </div>
+  </section>
+
+  <!-- ============ ACHIEVEMENTS ============ -->
+  <section class="stats">
+    <div class="wrap">
+      <p class="mono rv" style="text-align:center" data-t="s.label"></p>
+      <div class="stats-grid">
+        <div class="stat rv"><b class="metal" data-count="4" data-duration="1400">0</b><p data-t="s1"></p><small class="mono" data-t="s1s"></small></div>
+        <div class="stat rv" style="--d:.15s"><b class="metal">∞</b><p data-t="s2"></p><small class="mono" data-t="s2s"></small></div>
+        <div class="stat rv" style="--d:.3s"><b class="metal">1</b><p data-t="s3"></p><small class="mono" data-t="s3s"></small></div>
+      </div>
+    </div>
+    <div class="ticker" aria-hidden="true"><div id="tickA"></div><div id="tickB"></div></div>
+  </section>
+
+  <!-- ============ COLLAGE ============ -->
+  <section class="collage">
+    <div class="wrap">
+      <header class="journey-head" style="margin-bottom:0">
+        <h2 class="big rv" data-t="c.title"></h2>
+        <p class="mono rv" style="--d:.1s" data-t="c.hint"></p>
+      </header>
+      <div class="collage-grid">
+        <figure class="tile t1 rv"><img class="dm-img" data-img="1513258496099-48168024aec0" data-w="1200" data-sizes="(max-width: 860px) 50vw, 500px"><span data-t="c1"></span></figure>
+        <figure class="tile t2 rv" style="--d:.1s"><img class="dm-img" data-img="1564981797816-1043664bf78d" data-w="800" data-sizes="(max-width: 860px) 50vw, 300px"><span data-t="c2"></span></figure>
+        <figure class="tile t3 rv" style="--d:.2s"><img class="dm-img" data-img="1627556704302-624286467c65" data-w="800" data-sizes="(max-width: 860px) 50vw, 400px"><span data-t="c3"></span></figure>
+        <figure class="tile t4 rv" style="--d:.15s"><img class="dm-img" data-img="1590012314607-cda9d9b699ae" data-w="800" data-sizes="(max-width: 860px) 50vw, 300px"><span data-t="c4"></span></figure>
+        <figure class="tile t5 rv" style="--d:.1s"><img class="dm-img" data-img="1606761568499-6d2451b23c66" data-w="1200" data-sizes="(max-width: 860px) 50vw, 500px"><span data-t="c5"></span></figure>
+        <figure class="tile t6 rv" style="--d:.25s"><img class="dm-img" data-img="1578269174936-2709b6aeb913" data-w="800" data-sizes="(max-width: 860px) 50vw, 400px"><span data-t="c6"></span></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUOTE ============ -->
+  <section class="quote wrap">
+    <p class="rv" data-t-html="q.text"></p>
+    <p class="mono rv" style="--d:.15s">— LUKA</p>
+  </section>
+
+  <!-- ============ FINAL ============ -->
+  <section class="final">
+    <div class="final-in">
+      <p class="mono rv" data-t="f.label"></p>
+      <h2 class="rv metal" style="--d:.1s" data-t="f.title"></h2>
+      <p class="next" id="next" aria-live="off"></p>
+    </div>
+  </section>
+
+  <div id="dm-cta"></div>
+</main>
+
+<script src="../config.js"></script>
+<script src="shared.js"></script>
+<script>
+let typed = false, typeTimer = null;   // declared first: onLang (below) runs during Demo.init
+
+Demo.init({
+  i18n: {
+    ka: {
+      "meta.title": "ლუკა — 2026 წლის კურსდამთავრებული",
+      "alt.hero": "კურსდამთავრებული მოსასხამითა და ქუდით, ზურგიდან",
+      "hero.name": "ლუკა",
+      "hero.l1": "ერთი თავი მთავრდება.",
+      "hero.l2": "მეორე იწყება.",
+      "hero.meta1": "2026 წლის კურსდამთავრებული",
+      "hero.meta2": "თსუ · კომპიუტერული მეცნიერება",
+      "j.title": "გზა",
+      "j.label": "სკოლა → უნივერსიტეტი → გამოშვება",
+      "j1.t": "სკოლა", "j1.p": "პირველი მეგობრები, პირველი ოცნებები და ის მასწავლებელი, რომელმაც ყველაფერი შეცვალა.",
+      "j2.t": "უნივერსიტეტი", "j2.p": "ოთხი წელი ლექციების, უძილო ღამეების, ახალი იდეებისა და ადამიანების, რომლებიც სამუდამოდ დარჩებიან.",
+      "j3.t": "გამოშვება", "j3.p": "მოსასხამი, ქუდი ჰაერში და ერთი დიდი ღიმილი. ეს ჩვენ გავაკეთეთ.",
+      "s.label": "ციფრებში",
+      "s1": "წელი", "s1s": "ლექციები · გამოცდები · პროექტები",
+      "s2": "უთვალავი მოგონება", "s2s": "და ყველა მათგანი ძვირფასია",
+      "s3": "ერთი დიდი მომენტი", "s3s": "ახლა, აქ",
+      "tick": "დეკანის სია|საუკეთესო სადიპლომო 2026|Erasmus+ გაცვლითი|ჰაკათონის გამარჯვებული|სტუდენტური საბჭო",
+      "c.title": "მოგონებები",
+      "c.hint": "მიიტანე კურსორი ფოტოზე",
+      "c1": "გვიანი ღამეები", "c2": "ბიბლიოთეკა", "c3": "ქუდი ჰაერში", "c4": "ჩვენი ნაკადი", "c5": "ლექციები", "c6": "პატარა გამარჯვებები",
+      "q.text": "მადლობა მშობლებს, მასწავლებლებს და ყველას, ვინც <em>ჩემ გვერდით იყო</em> — ეს დღე თქვენიცაა.",
+      "f.label": "თავი 04 / 04",
+      "f.title": "თავი დასრულებულია.",
+      "f.next": "რა არის შემდეგი?"
+    },
+    en: {
+      "meta.title": "LUKA — Class of 2026",
+      "alt.hero": "A graduate in cap and gown, seen from behind",
+      "hero.name": "LUKA",
+      "hero.l1": "One chapter ends.",
+      "hero.l2": "Another begins.",
+      "hero.meta1": "Class of 2026",
+      "hero.meta2": "TSU · Computer Science",
+      "j.title": "The journey",
+      "j.label": "School → University → Graduation",
+      "j1.t": "School", "j1.p": "First friends, first dreams and the teacher who changed everything.",
+      "j2.t": "University", "j2.p": "Four years of lectures, sleepless nights, new ideas and people who will stay forever.",
+      "j3.t": "Graduation", "j3.p": "Gown on, cap in the air, one big smile. We did it.",
+      "s.label": "In numbers",
+      "s1": "Years", "s1s": "Lectures · exams · projects",
+      "s2": "Countless Memories", "s2s": "And every one of them counts",
+      "s3": "One Big Moment", "s3s": "Right here, right now",
+      "tick": "Dean's List|Best Thesis 2026|Erasmus+ Exchange|Hackathon Winner|Student Council",
+      "c.title": "Memories",
+      "c.hint": "Hover over a photo",
+      "c1": "Late nights", "c2": "The library", "c3": "Caps up", "c4": "Our class", "c5": "Lecture halls", "c6": "Small wins",
+      "q.text": "Thank you to my parents, my teachers and everyone who <em>stood by me</em> — this day is yours too.",
+      "f.label": "Chapter 04 / 04",
+      "f.title": "Chapter complete.",
+      "f.next": "What's next?"
+    }
+  },
+  onLang() {
+    /* the achievements ticker is duplicated for a seamless loop */
+    const items = Demo.t("tick").split("|").map(s => `<span>${s}</span>`).join("");
+    document.getElementById("tickA").innerHTML = items;
+    document.getElementById("tickB").innerHTML = items;
+    if (typed) typeNext();
+  }
+});
+
+Demo.fx(document.getElementById("stars"), "sparkle", { count: 40, max: 3.5, colors: ["#ffffff", "#b9c2cf", "#6f93ff"] });
+Demo.onReveal(document.getElementById("track"), el => el.classList.add("in"));
+
+/* "What's next?" types itself out */
+function typeNext() {
+  const el = document.getElementById("next"), text = Demo.t("f.next");
+  clearInterval(typeTimer);
+  if (Demo.reduced) { el.textContent = text; return; }
+  let i = 0; el.textContent = "";
+  typeTimer = setInterval(() => { el.textContent = text.slice(0, ++i); if (i >= text.length) clearInterval(typeTimer); }, 90);
+}
+Demo.onReveal(document.querySelector(".final-in"), () => { typed = true; setTimeout(typeNext, 900); });
+
+/* 3D tilt on the collage (mouse only) */
+if (!Demo.lite) {
+  document.querySelectorAll(".tile").forEach(tile => {
+    tile.addEventListener("mousemove", e => {
+      const r = tile.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      tile.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateZ(10px)`;
+    });
+    tile.addEventListener("mouseleave", () => { tile.style.transform = ""; });
+  });
+}
+</script>
+</body>
+</html>

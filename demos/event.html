@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SUMMER NIGHT — ბათუმი</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#05070f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Space+Grotesk:wght@300;400;500&family=Noto+Sans+Georgian:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    :root {
+      --navy: #0b1430; --black: #05070f; --orange: #ff8a3d; --orange-2: #f25c2a; --cream: #f6ead8; --dim: #9aa3bd;
+      --bg: var(--black); --ink: var(--cream); --accent: var(--orange);
+      --display: "Syne", "Noto Sans Georgian", sans-serif;
+      --body: "Space Grotesk", "Noto Sans Georgian", system-ui, sans-serif;
+      --loader-bg: var(--black); --loader-ink: var(--cream);
+      --nav-ink: var(--cream); --nav-bg: rgba(5, 7, 15, .8);
+      --top-bg: var(--orange); --top-ink: var(--black); --top-line: transparent;
+      --cta-bg: var(--navy); --cta-ink: var(--cream); --cta-accent: var(--orange); --cta-btn-bg: var(--orange); --cta-btn-ink: var(--black);
+    }
+    .wrap { width: min(1200px, 100% - 40px); margin-inline: auto; }
+    .tag { font: 500 .75rem/1 var(--body); letter-spacing: .3em; text-transform: uppercase; color: var(--orange); }
+    html:lang(ka) .tag { letter-spacing: .06em; font-size: .82rem; }
+    .h2 { font: 800 clamp(2.6rem, 6.4vw, 5.6rem)/.95 var(--display); text-transform: uppercase; letter-spacing: -.02em; margin-top: 16px; }
+    html:lang(ka) .h2 { text-transform: none; font-size: clamp(2rem, 4.6vw, 3.8rem); line-height: 1.2; letter-spacing: 0; }
+    .glow-text { text-shadow: 0 0 30px rgba(255,138,61,.55), 0 0 80px rgba(242,92,42,.35); }
+
+    /* ---------- Loader ---------- */
+    .ld { position: relative; width: 180px; height: 110px; overflow: hidden; border-bottom: 1px solid rgba(246,234,216,.4); }
+    .ld i { position: absolute; left: 50%; top: 20px; width: 70px; height: 70px; margin-left: -35px; border-radius: 50%; background: radial-gradient(circle, #ffb070, var(--orange-2)); box-shadow: 0 0 40px var(--orange); animation: sunset 1.6s cubic-bezier(.6,0,.4,1) both; }
+    @keyframes sunset { from { transform: translateY(0); } to { transform: translateY(70px); } }
+
+    /* ---------- Hero ---------- */
+    .hero { position: relative; min-height: 100vh; min-height: 100svh; overflow: hidden; display: grid; place-items: center; text-align: center; background: var(--navy); }
+    .hero-bg { position: absolute; inset: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 70%; filter: saturate(1.2) brightness(.7); transform: scale(1.12); transition: transform 4s cubic-bezier(.2,.7,.2,1); }
+    .loaded .hero-bg img { transform: scale(1); }
+    .hero-bg::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(5,7,15,.85) 0%, rgba(11,20,48,.55) 45%, rgba(242,92,42,.25) 80%, var(--black) 100%); }
+    .hero-bg::after { content: ""; position: absolute; left: 50%; bottom: -20vh; z-index: 1; width: 90vw; height: 50vh; margin-left: -45vw; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,138,61,.45), transparent 65%); filter: blur(30px); animation: breathe 6s ease-in-out infinite; }
+    @keyframes breathe { 50% { opacity: .6; transform: scale(1.08); } }
+    .streak { position: absolute; z-index: 2; height: 1px; width: 45vw; left: 0; background: linear-gradient(90deg, transparent, rgba(255,160,90,.9), transparent); transform: rotate(-16deg) translateX(-60vw); animation: streak 9s linear infinite; }
+    .streak:nth-of-type(2) { top: 30%; animation-delay: -3s; animation-duration: 11s; }
+    .streak:nth-of-type(3) { top: 62%; animation-delay: -6s; opacity: .6; }
+    .streak:nth-of-type(1) { top: 45%; }
+    @keyframes streak { to { transform: rotate(-16deg) translateX(170vw); } }
+    .hero-in { position: relative; z-index: 3; padding: 120px 20px 100px; }
+    .hero-title { font: 800 clamp(2.8rem, 12vw, 10.5rem)/.9 var(--display); letter-spacing: -.04em; }
+    .hero-title span { display: block; transition: transform 1.6s cubic-bezier(.2,.8,.2,1), opacity 1.6s; opacity: 0; }
+    .hero-title span:first-child { transform: translateX(-12vw); }
+    .hero-title span:last-child { transform: translateX(12vw); color: transparent; -webkit-text-stroke: 2px var(--orange); transition-delay: .2s; }
+    .loaded .hero-title span { transform: none; opacity: 1; }
+    .hero-when { margin-top: 34px; font: 500 clamp(1rem, 2vw, 1.4rem) var(--body); letter-spacing: .3em; text-transform: uppercase; opacity: 0; transition: opacity 1.2s 1.2s; }
+    html:lang(ka) .hero-when { letter-spacing: .08em; }
+    .hero-when b { color: var(--orange); font-weight: 500; margin: 0 .6em; }
+    .loaded .hero-when { opacity: 1; }
+
+    /* ---------- Marquee band ---------- */
+    .band { background: var(--orange); color: var(--black); transform: rotate(-2deg); margin: -30px -20px 0; position: relative; z-index: 4; overflow: hidden; white-space: nowrap; padding: 16px 0; }
+    .band div { display: inline-flex; animation: marquee 26s linear infinite; font: 800 clamp(1.2rem, 2.4vw, 1.9rem) var(--display); text-transform: uppercase; }
+    .band span { padding-right: 40px; }
+    .band span::after { content: "✦"; padding-left: 40px; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    /* ---------- Info + countdown ---------- */
+    .info { padding: clamp(110px, 14vw, 170px) 0 clamp(80px, 10vw, 120px); }
+    .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(246,234,216,.15); }
+    .info-grid > div { padding: 34px 26px 34px 0; border-right: 1px solid rgba(246,234,216,.15); }
+    .info-grid > div:last-child { border-right: 0; }
+    .info-grid > div + div { padding-left: 26px; }
+    .info-grid b { display: block; margin-top: 16px; font: 700 clamp(1.8rem, 3.6vw, 3rem)/1.05 var(--display); }
+    .info-grid small { display: block; margin-top: 8px; color: var(--dim); }
+    .cd-wrap { text-align: center; margin-top: clamp(90px, 12vw, 140px); }
+    .cd { display: flex; justify-content: center; gap: clamp(14px, 4vw, 50px); margin-top: 30px; }
+    .cd b { display: block; font: 800 clamp(2.2rem, 8vw, 6rem)/1 var(--display); color: var(--orange); font-variant-numeric: tabular-nums; }
+    .cd b.tick { animation: flash .6s ease; }
+    @keyframes flash { from { text-shadow: 0 0 40px rgba(255,138,61,.9); } }
+    .cd small { color: var(--dim); font-size: .8rem; letter-spacing: .2em; text-transform: uppercase; }
+    html:lang(ka) .cd small { letter-spacing: .04em; text-transform: none; }
+
+    /* ---------- About ---------- */
+    .about { padding: clamp(80px, 10vw, 120px) 0 clamp(110px, 14vw, 170px); }
+    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(40px, 7vw, 100px); align-items: center; }
+    .about-text p.big { font: 300 clamp(1.4rem, 2.6vw, 2.1rem)/1.45 var(--body); margin-top: 30px; }
+    .about-text p.big em { font-style: normal; color: var(--orange); }
+    .about-img { position: relative; }
+    .about-img figure { aspect-ratio: 4 / 5; overflow: hidden; border-radius: 200px 200px 16px 16px; }
+    .about-img::after { content: ""; position: absolute; inset: -14px; border: 1px solid rgba(255,138,61,.5); border-radius: 214px 214px 24px 24px; pointer-events: none; }
+
+    /* ---------- Expect cards ---------- */
+    .expect { padding: clamp(110px, 14vw, 170px) 0; background: var(--navy); }
+    .expect-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 60px; }
+    .card { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 3 / 4.6; isolation: isolate; border: 1px solid rgba(246,234,216,.1); transition: border-color .5s, box-shadow .5s, transform .6s cubic-bezier(.2,.8,.2,1); }
+    .card img { position: absolute; inset: 0; z-index: -2; transition: transform 1.4s cubic-bezier(.2,.8,.2,1), filter .6s; filter: brightness(.6) saturate(1.1); }
+    .card::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 30%, rgba(5,7,15,.95)); }
+    .card::after { content: ""; position: absolute; inset: 0; background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 30%), rgba(255,138,61,.3), transparent 60%); opacity: 0; transition: opacity .4s; pointer-events: none; }
+    .card:hover { border-color: rgba(255,138,61,.7); box-shadow: 0 0 50px -10px rgba(255,138,61,.45); }
+    .card:hover::after { opacity: 1; }
+    .card:hover img { transform: scale(1.08); filter: brightness(.75) saturate(1.2); }
+    .card-body { position: absolute; left: 0; right: 0; bottom: 0; padding: 24px; }
+    .card-body span { font: 700 .9rem var(--display); color: var(--orange); }
+    .card-body h3 { font: 700 1.5rem/1.1 var(--display); margin: 10px 0 8px; text-transform: uppercase; }
+    html:lang(ka) .card-body h3 { text-transform: none; font-size: 1.2rem; line-height: 1.35; }
+    .card-body p { color: var(--dim); font-size: .92rem; }
+
+    /* ---------- Location ---------- */
+    .loc { padding: clamp(110px, 14vw, 170px) 0; }
+    .loc-card { position: relative; border-radius: 26px; overflow: hidden; min-height: 460px; display: flex; align-items: flex-end; }
+    .loc-card img { position: absolute; inset: 0; filter: brightness(.55); }
+    .loc-body { position: relative; padding: clamp(30px, 5vw, 60px); max-width: 560px; }
+    .loc-body h3 { font: 800 clamp(2rem, 4vw, 3.2rem)/1 var(--display); margin: 16px 0 12px; }
+    .loc-body p { color: #d7cfc2; }
+    .pill { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; padding: 14px 26px; border-radius: 99px; border: 1px solid var(--orange); color: var(--cream); font-weight: 500; transition: background .3s, color .3s; }
+    .pill:hover { background: var(--orange); color: var(--black); }
+
+    /* ---------- Memories strip ---------- */
+    .mem { padding: 0 0 clamp(110px, 14vw, 170px); overflow: hidden; }
+    .mem-head { margin-bottom: 50px; }
+    .reel { display: flex; width: max-content; animation: reel 50s linear infinite; }
+    .reel:hover { animation-play-state: paused; }
+    .reel figure { width: clamp(220px, 24vw, 320px); aspect-ratio: 4 / 5; margin-right: 18px; border-radius: 14px; overflow: hidden; transform: rotate(var(--r, 0deg)); transition: transform .5s; }
+    .reel figure:hover { transform: rotate(0) scale(1.04); }
+    .reel img { filter: saturate(1.15); }
+    @keyframes reel { to { transform: translateX(-50%); } }
+
+    /* ---------- Invitation CTA ---------- */
+    .invite { position: relative; overflow: hidden; text-align: center; padding: clamp(110px, 15vw, 190px) 20px; background: radial-gradient(ellipse at 50% 100%, rgba(242,92,42,.35), transparent 60%), var(--black); }
+    .invite-in { position: relative; z-index: 2; }
+    .invite h2 { font: 800 clamp(3rem, 10vw, 8.4rem)/.9 var(--display); text-transform: uppercase; letter-spacing: -.03em; }
+    html:lang(ka) .invite h2 { text-transform: none; font-size: clamp(2.2rem, 7vw, 5.6rem); line-height: 1.15; letter-spacing: 0; }
+    .invite p { color: var(--dim); margin: 22px 0 40px; }
+    .inv-btn { display: inline-flex; align-items: center; gap: 12px; padding: 20px 38px; border-radius: 99px; background: var(--orange); color: var(--black); font: 700 1.05rem var(--display); letter-spacing: .02em; box-shadow: 0 0 0 0 rgba(255,138,61,.6); animation: pulse 2.6s ease-out infinite; transition: transform .3s; }
+    .inv-btn:hover { transform: translateY(-3px) scale(1.03); }
+    @keyframes pulse { 70% { box-shadow: 0 0 0 22px rgba(255,138,61,0); } 100% { box-shadow: 0 0 0 0 rgba(255,138,61,0); } }
+
+    @media (max-width: 900px) {
+      .info-grid { grid-template-columns: 1fr; }
+      .info-grid > div, .info-grid > div + div { border-right: 0; border-bottom: 1px solid rgba(246,234,216,.15); padding: 26px 0; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-img { width: min(380px, 86%); margin: 0 auto; }
+      .expect-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .card-body { padding: 16px; }
+      .card-body h3 { font-size: 1.1rem; }
+      .card-body p { font-size: .82rem; }
+      .streak:nth-of-type(3) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="dm-loader" aria-hidden="true"><div class="ld"><i></i></div></div>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-bg"><img data-img="1473116763249-2faaef81ccda" data-eager data-t-attr="alt:alt.hero"></div>
+    <canvas class="dm-fx" id="glow" aria-hidden="true" style="z-index:2"></canvas>
+    <i class="streak" aria-hidden="true"></i><i class="streak" aria-hidden="true"></i><i class="streak" aria-hidden="true"></i>
+    <div class="hero-in">
+      <h1 class="hero-title glow-text" aria-label="Summer Night"><span>SUMMER</span><span>NIGHT</span></h1>
+      <p class="hero-when"><span id="heroDay"></span><b>•</b><span data-t="city"></span></p>
+    </div>
+  </section>
+
+  <div class="band" aria-hidden="true"><div id="band"></div></div>
+
+  <!-- ============ INFO + COUNTDOWN ============ -->
+  <section class="info wrap">
+    <div class="info-grid">
+      <div class="rv"><p class="tag" data-t="i.date"></p><b id="infoDate"></b><small id="infoWeekday"></small></div>
+      <div class="rv" style="--d:.1s"><p class="tag" data-t="i.time"></p><b>21:00 — 04:00</b><small data-t="i.timeNote"></small></div>
+      <div class="rv" style="--d:.2s"><p class="tag" data-t="i.place"></p><b>Sunset Beach Club</b><small data-t="i.placeNote"></small></div>
+    </div>
+    <div class="cd-wrap">
+      <p class="tag rv" data-t="cd.label"></p>
+      <div class="cd rv glow-text" style="--d:.1s" id="cd">
+        <div><b data-cd="d">0</b><small data-t="u.d"></small></div>
+        <div><b data-cd="h">00</b><small data-t="u.h"></small></div>
+        <div><b data-cd="m">00</b><small data-t="u.m"></small></div>
+        <div><b data-cd="s">00</b><small data-t="u.s"></small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about wrap">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="tag rv" data-t="a.label"></p>
+        <h2 class="h2 rv" style="--d:.1s" data-t="a.title"></h2>
+        <p class="big rv" style="--d:.2s" data-t-html="a.text"></p>
+      </div>
+      <div class="about-img" data-speed="-0.08"><figure class="rv-img"><img class="dm-img" data-img="1464047736614-af63643285bf" data-w="1200" data-sizes="(max-width: 900px) 86vw, 460px"></figure></div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT TO EXPECT ============ -->
+  <section class="expect">
+    <div class="wrap">
+      <p class="tag rv" data-t="e.label"></p>
+      <h2 class="h2 rv" style="--d:.1s" data-t="e.title"></h2>
+      <div class="expect-grid">
+        <article class="card rv"><img class="dm-img" data-img="1506157786151-b8491531f063" data-w="800" data-sizes="(max-width: 900px) 50vw, 290px"><div class="card-body"><span>01</span><h3 data-t="e1.t"></h3><p data-t="e1.p"></p></div></article>
+        <article class="card rv" style="--d:.1s"><img class="dm-img" data-img="1565035010268-a3816f98589a" data-w="800" data-sizes="(max-width: 900px) 50vw, 290px"><div class="card-body"><span>02</span><h3 data-t="e2.t"></h3><p data-t="e2.p"></p></div></article>
+        <article class="card rv" style="--d:.2s"><img class="dm-img" data-img="1507525428034-b723cf961d3e" data-w="800" data-sizes="(max-width: 900px) 50vw, 290px"><div class="card-body"><span>03</span><h3 data-t="e3.t"></h3><p data-t="e3.p"></p></div></article>
+        <article class="card rv" style="--d:.3s"><img class="dm-img" data-img="1533174072545-7a4b6ad7a6c3" data-w="800" data-sizes="(max-width: 900px) 50vw, 290px"><div class="card-body"><span>04</span><h3 data-t="e4.t"></h3><p data-t="e4.p"></p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCATION ============ -->
+  <section class="loc wrap">
+    <div class="loc-card rv">
+      <img class="dm-img" data-img="1519046904884-53103b34b206" data-w="1800" data-sizes="(max-width: 1240px) 100vw, 1200px" data-t-attr="alt:alt.loc">
+      <div class="loc-body">
+        <p class="tag" data-t="l.label"></p>
+        <h3>Sunset Beach Club</h3>
+        <p data-t="l.address"></p>
+        <a class="pill" href="https://www.google.com/maps/search/?api=1&amp;query=Batumi+Boulevard" target="_blank" rel="noopener"><span data-t="l.btn"></span><span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MEMORIES ============ -->
+  <section class="mem">
+    <header class="mem-head wrap">
+      <p class="tag rv" data-t="m.label"></p>
+      <h2 class="h2 rv" style="--d:.1s" data-t="m.title"></h2>
+    </header>
+    <div class="reel" id="reel"></div>
+  </section>
+
+  <!-- ============ GET YOUR INVITATION ============ -->
+  <section class="invite">
+    <canvas class="dm-fx" id="glow2" aria-hidden="true"></canvas>
+    <div class="invite-in">
+      <p class="tag rv" data-t="inv.label"></p>
+      <h2 class="rv glow-text" style="--d:.1s" data-t="inv.title"></h2>
+      <p class="rv" style="--d:.2s" data-t="inv.text"></p>
+      <a class="inv-btn rv" style="--d:.3s" href="#" data-share="msg.invite"><span data-t="inv.btn"></span><span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <div id="dm-cta"></div>
+</main>
+
+<script src="../config.js"></script>
+<script src="shared.js"></script>
+<script>
+const night = Demo.nextOccurrence(9, 12, 21, 0);
+const pad = n => String(n).padStart(2, "0");
+
+/* memories reel: photos listed twice for a seamless loop */
+const reelIds = ["1429962714451-bb934ecdc4ec", "1470229722913-7c0e2dbbafd3", "1492684223066-81342ee5ff30", "1501281668745-f7f57925c3b4", "1566737236500-c8ac43014a67", "1500375592092-40eb2168fd21", "1514525253161-7a46d19cd819"];
+document.getElementById("reel").innerHTML = [...reelIds, ...reelIds].map((id, i) =>
+  `<figure style="--r:${i % 2 ? 2 : -2}deg"${i >= reelIds.length ? ' aria-hidden="true"' : ""}><img class="dm-img" data-img="${id}" data-w="800" data-sizes="320px"></figure>`).join("");
+
+Demo.init({
+  i18n: {
+    ka: {
+      "meta.title": "SUMMER NIGHT — ბათუმი",
+      "alt.hero": "ზღვის სანაპირო მზის ჩასვლისას",
+      "alt.loc": "ქვიშიანი სანაპირო პალმებით",
+      "city": "ბათუმი",
+      "band": "Summer Night|ბათუმი|DJ სეტები|მზის ჩასვლა|ფეიერვერკი|ზღვა და მუსიკა",
+      "i.date": "თარიღი", "i.time": "დრო", "i.place": "ლოკაცია",
+      "i.timeNote": "მზის ჩასვლიდან განთიადამდე",
+      "i.placeNote": "ბათუმის ბულვარი, ზღვის პირას",
+      "cd.label": "ღამე იწყება",
+      "u.d": "დღე", "u.h": "საათი", "u.m": "წუთი", "u.s": "წამი",
+      "a.label": "ღამის შესახებ",
+      "a.title": "ზაფხული ჯერ არ მთავრდება",
+      "a.text": "ერთი ღამე ზღვის პირას, როცა ზაფხული ჯერ არ მთავრდება. <em>მზის ჩასვლა, ცოცხალი მუსიკა,</em> კოქტეილები და ადამიანები, რომლებთანაც დრო ჩერდება.",
+      "e.label": "რას უნდა ელოდოთ",
+      "e.title": "ერთი ღამე. ოთხი შეგრძნება.",
+      "e1.t": "DJ სეტები", "e1.p": "ელექტრონული მუსიკა მზის ჩასვლიდან განთიადამდე.",
+      "e2.t": "ცოცხალი მუსიკა", "e2.p": "ლოკალური ბენდები სანაპიროს სცენაზე.",
+      "e3.t": "მზის ჩასვლა", "e3.p": "კოქტეილები და ყველაზე ლამაზი ხედი ბათუმში.",
+      "e4.t": "შუაღამის შოუ", "e4.p": "ფეიერვერკი და კონფეტი ზუსტად 00:00-ზე.",
+      "l.label": "ლოკაცია",
+      "l.address": "ბათუმის ბულვარი, ზღვის სანაპირო. შესასვლელი მოსაწვევით.",
+      "l.btn": "რუკაზე ნახვა",
+      "m.label": "მოგონებები",
+      "m.title": "გასული ზაფხულიდან",
+      "inv.label": "ადგილები შეზღუდულია",
+      "inv.title": "მიიღე შენი მოსაწვევი",
+      "inv.text": "მოგვწერე და შენს სახელს სიაში ჩავწერთ.",
+      "inv.btn": "მიიღე მოსაწვევი",
+      "msg.invite": "გამარჯობა! მინდა მოსაწვევი Summer Night-ზე, 12 სექტემბერს ბათუმში. 🌙"
+    },
+    en: {
+      "meta.title": "SUMMER NIGHT — Batumi",
+      "alt.hero": "A beach at dusk",
+      "alt.loc": "A sandy beach with palm trees",
+      "city": "Batumi",
+      "band": "Summer Night|Batumi|DJ sets|Sunset|Fireworks|Sea & music",
+      "i.date": "Date", "i.time": "Time", "i.place": "Location",
+      "i.timeNote": "From sunset to sunrise",
+      "i.placeNote": "Batumi Boulevard, by the sea",
+      "cd.label": "The night begins in",
+      "u.d": "Days", "u.h": "Hours", "u.m": "Minutes", "u.s": "Seconds",
+      "a.label": "About the night",
+      "a.title": "Summer isn't over yet",
+      "a.text": "One night by the sea, when summer refuses to end. <em>A sunset, live music,</em> cocktails and the people who make time stand still.",
+      "e.label": "What to expect",
+      "e.title": "One night. Four feelings.",
+      "e1.t": "DJ sets", "e1.p": "Electronic music from sunset to sunrise.",
+      "e2.t": "Live music", "e2.p": "Local bands on the beach stage.",
+      "e3.t": "Sunset", "e3.p": "Cocktails and the most beautiful view in Batumi.",
+      "e4.t": "Midnight show", "e4.p": "Fireworks and confetti at exactly 00:00.",
+      "l.label": "Location",
+      "l.address": "Batumi Boulevard, on the beach. Entry by invitation.",
+      "l.btn": "Open in Maps",
+      "m.label": "Memories",
+      "m.title": "From last summer",
+      "inv.label": "Limited spots",
+      "inv.title": "Get your invitation",
+      "inv.text": "Message us and we'll put your name on the list.",
+      "inv.btn": "Get Your Invitation",
+      "msg.invite": "Hi! I'd like an invitation to Summer Night on September 12 in Batumi. 🌙"
+    }
+  },
+  onLang() {
+    document.getElementById("heroDay").textContent = Demo.formatDate(night, { day: "numeric", month: "long" });
+    document.getElementById("infoDate").textContent = `${pad(night.getDate())}.${pad(night.getMonth() + 1)}.${night.getFullYear()}`;
+    document.getElementById("infoWeekday").textContent = Demo.formatDate(night, { weekday: "long" });
+    const items = Demo.t("band").split("|").map(s => `<span>${s}</span>`).join("");
+    document.getElementById("band").innerHTML = items + items;
+  }
+});
+
+Demo.fx(document.getElementById("glow"), "glow", { count: 46, colors: ["rgba(255,170,100,1)", "rgba(255,138,61,1)", "rgba(246,234,216,1)"] });
+Demo.fx(document.getElementById("glow2"), "glow", { count: 34, colors: ["rgba(255,138,61,1)", "rgba(242,92,42,1)"] });
+Demo.countdown(document.getElementById("cd"), night);
+
+/* spotlight that follows the cursor on the cards */
+document.querySelectorAll(".card").forEach(card => card.addEventListener("pointermove", e => {
+  const r = card.getBoundingClientRect();
+  card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+  card.style.setProperty("--my", `${e.clientY - r.top}px`);
+}));
+</script>
+</body>
+</html>

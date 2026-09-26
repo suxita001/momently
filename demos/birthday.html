@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ანა — 20 წლის ხდება</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#fff8f3">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,900;1,9..144,300;1,9..144,500&family=Outfit:wght@300;400;500;600&family=Noto+Serif+Georgian:wght@300;500;800&family=Noto+Sans+Georgian:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    :root {
+      --pink: #f6c9dc; --pink-deep: #e07aa5; --lav: #dcd0f5; --lav-deep: #b9a4e8; --cream: #fff8f3; --purple: #7a5aa6; --plum: #3b2358; --silver: #c9c9d6;
+      --bg: var(--cream); --ink: var(--plum); --accent: var(--pink-deep);
+      --display: "Fraunces", "Noto Serif Georgian", Georgia, serif;
+      --body: "Outfit", "Noto Sans Georgian", system-ui, sans-serif;
+      --loader-bg: var(--pink); --loader-ink: var(--plum);
+      --nav-ink: var(--plum); --nav-bg: rgba(255, 248, 243, .88);
+      --top-bg: var(--plum); --top-ink: var(--cream); --top-line: transparent;
+      --cta-bg: var(--cream); --cta-ink: var(--plum); --cta-accent: var(--pink-deep); --cta-btn-bg: var(--plum); --cta-btn-ink: var(--cream);
+    }
+    .wrap { width: min(1160px, 100% - 40px); margin-inline: auto; }
+    .label { display: inline-block; font: 500 .75rem/1 var(--body); letter-spacing: .22em; text-transform: uppercase; color: var(--purple); background: rgba(220,208,245,.6); padding: 9px 16px; border-radius: 99px; }
+    html:lang(ka) .label { letter-spacing: .04em; text-transform: none; font-size: .82rem; }
+    .h2 { font: 600 clamp(2.4rem, 5.4vw, 4.4rem)/1.05 var(--display); letter-spacing: -.02em; margin-top: 18px; }
+    .h2 em { font-style: italic; font-weight: 300; color: var(--pink-deep); }
+    html:lang(ka) .h2 { font-size: clamp(1.8rem, 3.8vw, 3rem); line-height: 1.3; letter-spacing: 0; }
+    html:lang(ka) .h2 em { font-style: normal; }
+
+    /* ---------- Loader ---------- */
+    .ld { font: italic 300 7rem/1 var(--display); animation: ldBounce 1.2s cubic-bezier(.3,1.6,.5,1) both; position: relative; }
+    .ld::after { content: "✦"; position: absolute; top: 4px; right: -26px; font-size: 1.6rem; font-style: normal; color: var(--purple); animation: twinkle 1.2s ease-in-out infinite; }
+    @keyframes ldBounce { from { transform: scale(.4) rotate(-10deg); opacity: 0; } }
+    @keyframes twinkle { 50% { transform: scale(.5) rotate(45deg); opacity: .4; } }
+
+    /* ---------- Hero ---------- */
+    .hero { position: relative; min-height: 100vh; min-height: 100svh; overflow: hidden; display: flex; align-items: center; padding: 110px 0 70px; }
+    .hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; filter: blur(60px); opacity: .7; }
+    .hero::before { width: 46vw; height: 46vw; background: var(--pink); left: -12vw; top: -10vw; }
+    .hero::after { width: 40vw; height: 40vw; background: var(--lav); right: -10vw; bottom: -14vw; }
+    .hero-grid { position: relative; z-index: 3; display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(30px, 5vw, 70px); align-items: center; }
+    .hero-date { font: 500 .8rem/1 var(--body); letter-spacing: .2em; text-transform: uppercase; color: var(--purple); }
+    html:lang(ka) .hero-date { letter-spacing: .05em; text-transform: none; font-size: .9rem; }
+    .hero-name { font: 900 clamp(7rem, 22vw, 17rem)/.85 var(--display); letter-spacing: -.04em; color: var(--plum); margin: 18px 0 6px; font-variation-settings: "SOFT" 100; }
+    html:lang(ka) .hero-name { font-size: clamp(5rem, 15vw, 11rem); line-height: 1.05; letter-spacing: 0; font-weight: 800; }
+    .hero-name .ch { display: inline-block; opacity: 0; }
+    .loaded .hero-name .ch { animation: popIn 1s cubic-bezier(.3,1.6,.5,1) both; animation-delay: calc(.3s + var(--i) * .14s); }
+    @keyframes popIn { from { opacity: 0; transform: translateY(40%) scale(.4) rotate(-12deg); } to { opacity: 1; transform: none; } }
+    .hero-turns { font: italic 300 clamp(2.2rem, 5.4vw, 4.4rem)/1.1 var(--display); color: var(--pink-deep); opacity: 0; transform: translateX(-20px); transition: opacity 1.2s 1s, transform 1.2s 1s cubic-bezier(.2,.8,.2,1); }
+    html:lang(ka) .hero-turns { font-style: normal; font-size: clamp(1.6rem, 3.6vw, 2.8rem); }
+    .hero-text p { margin-top: 26px; max-width: 26em; color: #6a5a7d; opacity: 0; transition: opacity 1.2s 1.4s; }
+    .loaded .hero-turns, .loaded .hero-text p { opacity: 1; transform: none; }
+    .hero-photo { position: relative; justify-self: center; width: min(420px, 100%); }
+    .hero-arch { border-radius: 999px 999px 32px 32px; overflow: hidden; aspect-ratio: 3 / 4; box-shadow: 0 40px 80px -40px rgba(59,35,88,.55); transform: translateY(40px) scale(.94); opacity: 0; transition: transform 1.6s .4s cubic-bezier(.2,.8,.2,1), opacity 1.2s .4s; }
+    .loaded .hero-arch { transform: none; opacity: 1; }
+    .badge-spin { position: absolute; left: -54px; bottom: 40px; width: 150px; height: 150px; border-radius: 50%; background: var(--plum); color: var(--cream); display: grid; place-items: center; box-shadow: 0 20px 40px -20px rgba(59,35,88,.7); }
+    .badge-spin svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: spin 18s linear infinite; }
+    .badge-spin text { font: 500 11.5px var(--body); letter-spacing: 3px; fill: currentColor; text-transform: uppercase; }
+    .badge-spin b { font: italic 500 2.6rem/1 var(--display); color: var(--pink); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .balloon { position: absolute; z-index: 2; width: var(--w, 70px); fill: var(--c); filter: drop-shadow(0 16px 18px rgba(59,35,88,.18)); animation: float var(--t, 9s) ease-in-out infinite; animation-delay: var(--dl, 0s); }
+    .balloon--1 { --c: #f3b3cf; --w: 86px; left: 4%; top: 18%; --t: 10s; }
+    .balloon--2 { --c: #cbbcf0; --w: 64px; left: 44%; top: 8%; --t: 8s; --dl: -3s; }
+    .balloon--3 { --c: #dcdce6; --w: 74px; right: 5%; top: 12%; --t: 11s; --dl: -5s; }
+    .balloon--4 { --c: #f7d3e3; --w: 56px; right: 30%; bottom: 6%; --t: 9s; --dl: -2s; }
+    .balloon--5 { --c: #b9a4e8; --w: 50px; left: 20%; bottom: 8%; --t: 12s; --dl: -6s; }
+    @keyframes float { 0%, 100% { transform: translate(0, 0) rotate(-3deg); } 50% { transform: translate(8px, -26px) rotate(3deg); } }
+
+    /* ---------- 20 years ---------- */
+    .years { background: var(--plum); color: var(--cream); padding: clamp(100px, 14vw, 170px) 0; position: relative; overflow: hidden; text-align: center; }
+    .years .label { background: rgba(255,255,255,.1); color: var(--pink); }
+    .years-num { font: 900 clamp(10rem, 34vw, 26rem)/.8 var(--display); letter-spacing: -.05em; color: transparent; -webkit-text-stroke: 2px var(--pink); margin: 30px 0 10px; font-variant-numeric: tabular-nums; }
+    .years .h2 { color: var(--cream); }
+    .dots { display: flex; justify-content: center; gap: clamp(6px, 1.4vw, 14px); margin: 60px auto 14px; flex-wrap: wrap; max-width: 760px; padding: 0 20px; }
+    .dots span { width: clamp(10px, 2vw, 18px); aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(246,201,220,.4); transition: background .4s, transform .4s; transition-delay: calc(var(--i) * .09s + .6s); }
+    .dots.in span { background: var(--pink); transform: scale(1.1); }
+    .dots.in span:last-child { background: var(--lav); box-shadow: 0 0 20px var(--lav); }
+    .dots-years { display: flex; justify-content: space-between; max-width: 720px; margin: 0 auto; padding: 0 20px; font-size: .85rem; color: var(--silver); letter-spacing: .1em; }
+
+    /* ---------- Memories gallery ---------- */
+    .mem { padding: clamp(100px, 14vw, 170px) 0; }
+    .mem-head { text-align: center; margin-bottom: 60px; }
+    .mem-grid { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 90px; gap: 18px; }
+    .mem-item { position: relative; border-radius: 26px; overflow: hidden; transition: transform .6s cubic-bezier(.3,1.4,.5,1); }
+    .mem-item:hover { transform: rotate(var(--hr, -2deg)) scale(1.03); z-index: 2; }
+    .mem-item.rv { transform: translateY(50px) rotate(var(--rr, -4deg)) scale(.92); }
+    .mem-item.rv.in { transform: none; }
+    .mem-item.rv.in:hover { transform: rotate(var(--hr, -2deg)) scale(1.03); }
+    .mem-item figcaption { position: absolute; left: 14px; bottom: 14px; background: var(--cream); color: var(--plum); font-size: .82rem; font-weight: 500; padding: 7px 14px; border-radius: 99px; }
+    .m1 { grid-column: 1 / 6; grid-row: span 5; --rr: -5deg; }
+    .m2 { grid-column: 6 / 9; grid-row: span 3; --rr: 4deg; --hr: 2deg; }
+    .m3 { grid-column: 9 / 13; grid-row: span 4; --rr: -3deg; }
+    .m4 { grid-column: 6 / 9; grid-row: span 3; --rr: 5deg; --hr: 2deg; }
+    .m5 { grid-column: 1 / 6; grid-row: span 3; --rr: 3deg; }
+    .m6 { grid-column: 9 / 13; grid-row: span 3; --rr: -4deg; }
+    .m7 { grid-column: 6 / 9; grid-row: span 2; --rr: 2deg; background: var(--lav); display: grid; place-items: center; text-align: center; padding: 16px; font: italic 300 1.4rem/1.2 var(--display); color: var(--plum); }
+    html:lang(ka) .m7 { font-style: normal; font-size: 1.05rem; }
+
+    /* ---------- 20 things ---------- */
+    .things { background: var(--lav); padding: clamp(100px, 14vw, 170px) 0; position: relative; overflow: hidden; }
+    .things-head { text-align: center; margin-bottom: 60px; }
+    .things .label { background: rgba(255,255,255,.55); }
+    .things-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .thing { border-radius: 22px; padding: 22px 22px 24px; background: var(--cream); min-height: 150px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; transition: transform .5s cubic-bezier(.3,1.5,.5,1), box-shadow .5s; }
+    .thing.rv { transform: translateY(30px) scale(.9); }
+    .thing.rv.in { transform: none; }
+    .thing.rv.in:hover { transform: translateY(-6px) rotate(-1.5deg); box-shadow: 0 24px 40px -24px rgba(59,35,88,.5); }
+    .thing:nth-child(4n+2) { background: var(--pink); }
+    .thing:nth-child(4n+3) { background: var(--plum); color: var(--cream); }
+    .thing:nth-child(4n+3) b { color: var(--pink); }
+    .thing:nth-child(4n+4) { background: #fff; }
+    .thing b { font: italic 300 2.6rem/1 var(--display); color: var(--purple); }
+    .thing p { font: 500 1.02rem/1.35 var(--body); }
+
+    /* ---------- Letter ---------- */
+    .wish { padding: clamp(100px, 14vw, 170px) 20px; }
+    .wish-card { position: relative; max-width: 760px; margin: 0 auto; background: var(--pink); border-radius: 36px; padding: clamp(50px, 8vw, 90px) clamp(28px, 7vw, 80px); text-align: center; }
+    .wish-card::before { content: ""; position: absolute; inset: 14px; border: 1.5px dashed rgba(59,35,88,.25); border-radius: 26px; pointer-events: none; }
+    .wish-card h3 { font: italic 300 clamp(2rem, 4vw, 2.8rem)/1.1 var(--display); margin-bottom: 24px; }
+    html:lang(ka) .wish-card h3 { font-style: normal; font-size: clamp(1.5rem, 3vw, 2rem); }
+    .wish-card p { font-size: 1.1rem; line-height: 1.8; color: #4b3565; margin-bottom: 14px; }
+    .wish-card .sign { font: italic 500 1.4rem var(--display); margin-top: 26px; color: var(--plum); }
+    html:lang(ka) .wish-card .sign { font-style: normal; font-size: 1.1rem; }
+    .sticker { position: absolute; top: -34px; right: -20px; width: 104px; height: 104px; border-radius: 50%; background: var(--plum); color: var(--pink); display: grid; place-items: center; font: italic 500 2.2rem var(--display); transform: rotate(12deg); box-shadow: 0 14px 30px -14px rgba(59,35,88,.7); }
+
+    /* ---------- Celebrate ---------- */
+    .celebrate { position: relative; overflow: hidden; background: var(--plum); color: var(--cream); text-align: center; padding: clamp(110px, 15vw, 180px) 20px; }
+    .celebrate-in { position: relative; z-index: 2; }
+    .celebrate h2 { font: 900 clamp(3.4rem, 10vw, 8rem)/1 var(--display); letter-spacing: -.03em; }
+    .celebrate h2 em { font-style: italic; font-weight: 300; color: var(--pink); }
+    html:lang(ka) .celebrate h2 { font-size: clamp(2.4rem, 7vw, 5rem); line-height: 1.2; letter-spacing: 0; }
+    html:lang(ka) .celebrate h2 em { font-style: normal; }
+    .party { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 40px 0 34px; }
+    .party span { border: 1px solid rgba(246,201,220,.35); border-radius: 99px; padding: 10px 20px; font-size: .95rem; }
+    .cd { display: flex; justify-content: center; gap: clamp(10px, 3vw, 26px); margin-bottom: 44px; }
+    .cd div { min-width: 72px; }
+    .cd b { display: block; font: 600 clamp(2.2rem, 6vw, 3.6rem)/1 var(--display); color: var(--pink); font-variant-numeric: tabular-nums; }
+    .cd b.tick { animation: tick .5s cubic-bezier(.3,1.6,.5,1); }
+    @keyframes tick { from { transform: translateY(-10px) scale(.9); opacity: .4; } }
+    .cd small { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--silver); }
+    html:lang(ka) .cd small { letter-spacing: .03em; text-transform: none; font-size: .8rem; }
+    .wish-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--pink); color: var(--plum); padding: 18px 34px; border-radius: 99px; font: 600 1rem var(--body); transition: transform .4s cubic-bezier(.3,1.6,.5,1), box-shadow .4s; box-shadow: 0 0 0 0 rgba(246,201,220,.5); }
+    .wish-btn:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 0 0 10px rgba(246,201,220,.12); }
+
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-text p { margin-inline: auto; }
+      .hero-photo { width: min(330px, 86%); margin-top: 20px; }
+      .badge-spin { width: 116px; height: 116px; left: -30px; bottom: 20px; }
+      .badge-spin text { font-size: 13px; }
+      .badge-spin b { font-size: 2rem; }
+      .balloon--2, .balloon--4 { display: none; }
+      .mem-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 120px; gap: 12px; }
+      .mem-grid > * { grid-column: auto !important; }
+      .m1 { grid-row: span 3; } .m2, .m3, .m4, .m5, .m6 { grid-row: span 2; } .m7 { grid-column: 1 / -1 !important; grid-row: span 1; }
+      .things-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .thing { min-height: 130px; padding: 18px; }
+      .thing b { font-size: 2rem; }
+      .thing p { font-size: .92rem; }
+      .sticker { width: 80px; height: 80px; font-size: 1.7rem; right: -6px; }
+    }
+  </style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="balloon" viewBox="0 0 60 132">
+    <path d="M30 2 C 48 2, 58 18, 58 34 C 58 54, 42 70, 30 72 C 18 70, 2 54, 2 34 C 2 18, 12 2, 30 2 Z"/>
+    <path d="M25 71 L35 71 L30 78 Z"/>
+    <ellipse cx="19" cy="22" rx="6" ry="11" fill="#fff" opacity=".4" transform="rotate(-22 19 22)"/>
+    <path d="M30 78 C 22 92, 38 104, 28 130" fill="none" stroke="#a898bd" stroke-width="1"/>
+  </symbol>
+</svg>
+
+<div class="dm-loader" aria-hidden="true"><div class="ld">20</div></div>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <canvas class="dm-fx" id="sparkles" aria-hidden="true"></canvas>
+    <svg class="balloon balloon--1" aria-hidden="true" viewBox="0 0 60 132"><use href="#balloon"/></svg>
+    <svg class="balloon balloon--2" aria-hidden="true" viewBox="0 0 60 132"><use href="#balloon"/></svg>
+    <svg class="balloon balloon--3" aria-hidden="true" viewBox="0 0 60 132"><use href="#balloon"/></svg>
+    <svg class="balloon balloon--4" aria-hidden="true" viewBox="0 0 60 132"><use href="#balloon"/></svg>
+    <svg class="balloon balloon--5" aria-hidden="true" viewBox="0 0 60 132"><use href="#balloon"/></svg>
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="hero-date" id="heroDate"></p>
+        <h1><span class="hero-name" style="display:block" data-t="hero.name" data-split>ANA</span><span class="hero-turns" style="display:block" data-t="hero.turns"></span></h1>
+        <p data-t="hero.text"></p>
+      </div>
+      <div class="hero-photo">
+        <div class="hero-arch"><img class="dm-img" data-img="1535254973040-607b474cb50d" data-eager data-w="1200" data-sizes="(max-width: 860px) 86vw, 420px" data-t-attr="alt:alt.hero"></div>
+        <div class="badge-spin" aria-hidden="true">
+          <svg viewBox="0 0 150 150"><defs><path id="circ" d="M75 75 m -56 0 a 56 56 0 1 1 112 0 a 56 56 0 1 1 -112 0"/></defs><text><textPath href="#circ" data-t="badge"></textPath></text></svg>
+          <b>20</b>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 20 YEARS ============ -->
+  <section class="years">
+    <p class="label rv" data-t="years.label"></p>
+    <p class="years-num" data-count="20" data-duration="2600" aria-hidden="true">0</p>
+    <h2 class="h2 rv" data-t-html="years.title"></h2>
+    <div class="dots" id="dots" aria-hidden="true"></div>
+    <div class="dots-years" aria-hidden="true"><span>2006</span><span>2026</span></div>
+  </section>
+
+  <!-- ============ MEMORIES ============ -->
+  <section class="mem wrap">
+    <header class="mem-head">
+      <p class="label rv" data-t="mem.label"></p>
+      <h2 class="h2 rv" style="--d:.1s" data-t-html="mem.title"></h2>
+    </header>
+    <div class="mem-grid">
+      <figure class="mem-item m1 rv"><img class="dm-img" data-img="1530103862676-de8c9debad1d" data-w="1200" data-sizes="(max-width: 860px) 50vw, 480px"><figcaption data-t="mem.c1"></figcaption></figure>
+      <figure class="mem-item m2 rv" style="--d:.1s"><img class="dm-img" data-img="1527529482837-4698179dc6ce" data-w="800" data-sizes="(max-width: 860px) 50vw, 290px"><figcaption data-t="mem.c2"></figcaption></figure>
+      <figure class="mem-item m3 rv" style="--d:.2s"><img class="dm-img" data-img="1513151233558-d860c5398176" data-w="800" data-sizes="(max-width: 860px) 50vw, 380px"><figcaption data-t="mem.c3"></figcaption></figure>
+      <figure class="mem-item m4 rv" style="--d:.15s"><img class="dm-img" data-img="1558636508-e0db3814bd1d" data-w="800" data-sizes="(max-width: 860px) 50vw, 290px"><figcaption data-t="mem.c4"></figcaption></figure>
+      <figure class="mem-item m5 rv" style="--d:.1s"><img class="dm-img" data-img="1519671482749-fd09be7ccebf" data-w="1200" data-sizes="(max-width: 860px) 50vw, 480px"><figcaption data-t="mem.c5"></figcaption></figure>
+      <figure class="mem-item m6 rv" style="--d:.25s"><img class="dm-img" data-img="1464349095431-e9a21285b5f3" data-w="800" data-sizes="(max-width: 860px) 50vw, 380px"><figcaption data-t="mem.c6"></figcaption></figure>
+      <p class="mem-item m7 rv" style="--d:.3s" data-t="mem.quote"></p>
+    </div>
+  </section>
+
+  <!-- ============ 20 THINGS ============ -->
+  <section class="things">
+    <div class="wrap">
+      <header class="things-head">
+        <p class="label rv" data-t="things.label"></p>
+        <h2 class="h2 rv" style="--d:.1s" data-t-html="things.title"></h2>
+      </header>
+      <div class="things-grid" id="things"></div>
+    </div>
+  </section>
+
+  <!-- ============ LETTER ============ -->
+  <section class="wish">
+    <div class="wish-card rv">
+      <span class="sticker" aria-hidden="true">20</span>
+      <h3 data-t="wish.to"></h3>
+      <p data-t="wish.p1"></p>
+      <p data-t="wish.p2"></p>
+      <p class="sign" data-t="wish.sign"></p>
+    </div>
+  </section>
+
+  <!-- ============ LET'S CELEBRATE ============ -->
+  <section class="celebrate" id="celebrate">
+    <canvas class="dm-fx" id="sparkles2" aria-hidden="true"></canvas>
+    <div class="celebrate-in">
+      <h2 class="rv" data-t-html="cel.title"></h2>
+      <div class="party rv" style="--d:.15s"><span id="partyDate"></span><span data-t="cel.place"></span><span data-t="cel.dress"></span></div>
+      <div class="cd rv" style="--d:.25s" id="cd">
+        <div><b data-cd="d">0</b><small data-t="u.d"></small></div>
+        <div><b data-cd="h">00</b><small data-t="u.h"></small></div>
+        <div><b data-cd="m">00</b><small data-t="u.m"></small></div>
+        <div><b data-cd="s">00</b><small data-t="u.s"></small></div>
+      </div>
+      <a class="wish-btn rv" style="--d:.35s" href="#" data-share="msg.wish" id="wishBtn"><span aria-hidden="true">✦</span><span data-t="cel.btn"></span></a>
+    </div>
+  </section>
+
+  <div id="dm-cta"></div>
+</main>
+
+<script src="../config.js"></script>
+<script src="shared.js"></script>
+<script>
+/* build the 20 cards and 20 dots before translations are applied */
+document.getElementById("things").innerHTML = Array.from({ length: 20 }, (_, i) =>
+  `<article class="thing rv" style="--d:${(i % 4) * .08}s"><b>${String(i + 1).padStart(2, "0")}</b><p data-t="t${i + 1}"></p></article>`).join("");
+document.getElementById("dots").innerHTML = Array.from({ length: 20 }, (_, i) => `<span style="--i:${i}"></span>`).join("");
+
+const party = Demo.nextOccurrence(11, 14, 19, 0);
+
+Demo.init({
+  i18n: {
+    ka: {
+      "meta.title": "ანა — 20 წლის ხდება",
+      "alt.hero": "ვარდისფერი ტორტი ყვავილებით",
+      "hero.name": "ანა",
+      "hero.turns": "20 წლის ხდება",
+      "hero.text": "ოცი წელი სიცილის, თავგადასავლებისა და ლამაზი მოგონებების. ეს გვერდი მისთვისაა — ყველაზე განსაკუთრებული დღისთვის.",
+      "badge": "გილოცავ დაბადების დღეს · ანა · 20 · ",
+      "years.label": "2006 — 2026",
+      "years.title": "20 წელი <em>მოგონებების.</em>",
+      "mem.label": "ალბომი",
+      "mem.title": "დაბადების დღის <em>მოგონებები</em>",
+      "mem.c1": "ბუშტები და ღიმილი",
+      "mem.c2": "სადღეგრძელოები",
+      "mem.c3": "კონფეტი ყველგან",
+      "mem.c4": "ყველაზე ტკბილი დღე",
+      "mem.c5": "მეგობრები",
+      "mem.c6": "ჩაიფიქრე სურვილი",
+      "mem.quote": "„ყველაზე კარგი წლები ჯერ კიდევ წინაა.“",
+      "things.label": "სია",
+      "things.title": "20 რამ, რაც <em>ანაში</em> გვიყვარს",
+      "t1": "მისი სიცილი, რომელიც გადამდებია", "t2": "როგორ ცეკვავს სამზარეულოში", "t3": "ყველას დაბადების დღე ახსოვს",
+      "t4": "მისი საუკეთესო რჩევები", "t5": "ყავის დიდი სიყვარული", "t6": "საკუთარ ხუმრობებზე იცინის",
+      "t7": "უზარმაზარი, კეთილი გული", "t8": "შაბათის სპონტანური გეგმები", "t9": "ყოველთვის იცის, რა ჩაიცვას",
+      "t10": "როგორ უსმენს", "t11": "მისი პლეილისტები", "t12": "ფოტოები ყოველ კუთხეში",
+      "t13": "არასდროს ნებდება", "t14": "მისი ჩახუტებები", "t15": "ზღვის სიყვარული",
+      "t16": "გვიანღამის საუბრები", "t17": "პატარა სიურპრიზები", "t18": "ოცნებები — დიდიც და პატარაც",
+      "t19": "როგორ ანათებს ოთახს", "t20": "უბრალოდ — რომ ის ანაა",
+      "wish.to": "ძვირფასო ანა,",
+      "wish.p1": "გილოცავ დაბადების დღეს! ოცი წელი გავიდა და შენ დღემდე ისეთივე ნათელი, თბილი და დაუჯერებლად სასაცილო ხარ, როგორიც ყოველთვის.",
+      "wish.p2": "გისურვებთ წელიწადს, რომელიც სავსე იქნება თავგადასავლებით, სიყვარულით და იმ ადამიანებით, ვინც ყველაზე ძალიან გიყვარს. ჩვენ ყოველთვის შენ გვერდით ვიქნებით.",
+      "wish.sign": "სიყვარულით, შენი მეგობრები ♥",
+      "cel.title": "მოდი, <em>ვიზეიმოთ.</em>",
+      "cel.place": "რესტორანი „ბაღი“, თბილისი",
+      "cel.dress": "დრესკოდი: რაღაც ლამაზი ✦",
+      "u.d": "დღე", "u.h": "საათი", "u.m": "წუთი", "u.s": "წამი",
+      "cel.btn": "გაუგზავნე მილოცვა",
+      "msg.wish": "გილოცავ დაბადების დღეს, ანა! 🎉 ოცი წელი სიცილის, სითბოს და ლამაზი მოგონებების. ბედნიერი იყავი! ♥"
+    },
+    en: {
+      "meta.title": "Ana turns 20",
+      "alt.hero": "A pink cake decorated with flowers",
+      "hero.name": "ANA",
+      "hero.turns": "turns 20",
+      "hero.text": "Twenty years of laughter, adventures and beautiful memories. This page is for her — for her most special day.",
+      "badge": "Happy birthday · Ana · twenty · ",
+      "years.label": "2006 — 2026",
+      "years.title": "20 years <em>of memories.</em>",
+      "mem.label": "The album",
+      "mem.title": "Birthday <em>Memories</em>",
+      "mem.c1": "Balloons & smiles",
+      "mem.c2": "Toasts",
+      "mem.c3": "Confetti everywhere",
+      "mem.c4": "The sweetest day",
+      "mem.c5": "Friends",
+      "mem.c6": "Make a wish",
+      "mem.quote": "“The best years are still ahead.”",
+      "things.label": "The list",
+      "things.title": "20 things we love <em>about Ana</em>",
+      "t1": "Her contagious laugh", "t2": "How she dances in the kitchen", "t3": "She remembers everyone's birthday",
+      "t4": "Her very best advice", "t5": "Her love for coffee", "t6": "Laughing at her own jokes",
+      "t7": "Her huge, kind heart", "t8": "Spontaneous Saturday plans", "t9": "Always knows what to wear",
+      "t10": "The way she listens", "t11": "Her playlists", "t12": "Photos in every corner",
+      "t13": "She never gives up", "t14": "Her hugs", "t15": "Her love for the sea",
+      "t16": "Late-night talks", "t17": "Little surprises", "t18": "Dreams, big and small",
+      "t19": "How she lights up a room", "t20": "Simply that she's Ana",
+      "wish.to": "Dear Ana,",
+      "wish.p1": "Happy birthday! Twenty years have passed and you are still as bright, warm and ridiculously funny as ever.",
+      "wish.p2": "We wish you a year full of adventures, love and the people you love most. We'll always be right beside you.",
+      "wish.sign": "Love, your friends ♥",
+      "cel.title": "Let's <em>celebrate.</em>",
+      "cel.place": "Restaurant “Baghi”, Tbilisi",
+      "cel.dress": "Dress code: something pretty ✦",
+      "u.d": "Days", "u.h": "Hours", "u.m": "Minutes", "u.s": "Seconds",
+      "cel.btn": "Send Birthday Wishes",
+      "msg.wish": "Happy birthday, Ana! 🎉 Twenty years of laughter, warmth and beautiful memories. Be happy! ♥"
+    }
+  },
+  onLang() {
+    document.getElementById("heroDate").textContent = Demo.formatDate(party, { day: "numeric", month: "long" }) + " · " + Demo.t("years.label").split(" — ")[1];
+    document.getElementById("partyDate").textContent = Demo.formatDate(party, { weekday: "long", day: "numeric", month: "long" }) + " · 19:00";
+  }
+});
+
+Demo.fx(document.getElementById("sparkles"), "sparkle", { count: 34, max: 6, colors: ["#ffffff", "#c9c9d6", "#e07aa5", "#b9a4e8"] });
+Demo.fx(document.getElementById("sparkles2"), "sparkle", { count: 40, max: 5, colors: ["#f6c9dc", "#dcd0f5", "#ffffff"] });
+Demo.countdown(document.getElementById("cd"), party);
+
+/* the dots light up one by one */
+Demo.onReveal(document.getElementById("dots"), el => el.classList.add("in"));
+
+/* confetti when the celebration comes into view, and again on the wishes button */
+const confettiColors = ["#f6c9dc", "#e07aa5", "#dcd0f5", "#b9a4e8", "#c9c9d6", "#ffffff"];
+Demo.onReveal(document.getElementById("celebrate"), () => Demo.confetti({ colors: confettiColors }));
+document.getElementById("wishBtn").addEventListener("click", () => Demo.confetti({ colors: confettiColors, count: 90 }));
+</script>
+</body>
+</html>

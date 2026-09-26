@@ -1,0 +1,15 @@
+{
+  "name": "momently",
+  "private": true,
+  "type": "module",
+  "description": "MOMENTLY website with a small admin panel (Vercel Functions + Vercel Blob).",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "local": "node scripts/dev-server.js"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.8.0"
+  }
+}

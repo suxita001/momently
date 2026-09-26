@@ -1,0 +1,528 @@
+{
+  "version": 1,
+  "hero": {
+    "title": {
+      "ka": "გახადე შენი განსაკუთრებული მომენტი",
+      "en": "Make your special moment"
+    },
+    "accent": {
+      "ka": "დაუვიწყარი.",
+      "en": "unforgettable."
+    },
+    "lead": {
+      "ka": "პერსონალიზებული პატარა ვებსაიტები სიყვარულისთვის, დაბადების დღეებისთვის, ქორწილებისთვის და იმ მომენტებისთვის, რომლებიც განსაკუთრებულად უნდა დარჩეს.",
+      "en": "Personalized mini-websites for love, birthdays, weddings, celebrations and the moments that deserve to be remembered."
+    }
+  },
+  "services": [
+    {
+      "id": "love",
+      "title": {
+        "ka": "სიყვარული & წლისთავი",
+        "en": "Love & Anniversary"
+      },
+      "desc": {
+        "ka": "შექმენი თქვენი ისტორიისთვის შექმნილი უნიკალური ვებსაიტი.",
+        "en": "A one-of-a-kind website made just for your story."
+      },
+      "price": {
+        "ka": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "birthday",
+      "title": {
+        "ka": "დაბადების დღე",
+        "en": "Birthday"
+      },
+      "desc": {
+        "ka": "გადააქციე დაბადების დღის მილოცვა განსაკუთრებულ ციფრულ გამოცდილებად.",
+        "en": "Turn a birthday wish into a truly special digital experience."
+      },
+      "price": {
+        "ka": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "wedding",
+      "title": {
+        "ka": "ქორწილი & ნიშნობა",
+        "en": "Wedding & Engagement"
+      },
+      "desc": {
+        "ka": "ელეგანტური ციფრული მოწვევა თქვენი განსაკუთრებული დღისთვის.",
+        "en": "An elegant digital invitation for your special day."
+      },
+      "price": {
+        "ka": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "graduation",
+      "title": {
+        "ka": "კურსდამთავრება",
+        "en": "Graduation"
+      },
+      "desc": {
+        "ka": "დაიმახსოვრე მნიშვნელოვანი ეტაპი პერსონალიზებული ვებსაიტით.",
+        "en": "Celebrate an important milestone with a personalized website."
+      },
+      "price": {
+        "ka": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "event",
+      "title": {
+        "ka": "ღონისძიებები & წვეულებები",
+        "en": "Events & Parties"
+      },
+      "desc": {
+        "ka": "გააზიარე დეტალები, დრო, ადგილი და განწყობა ერთ ლამაზ გვერდზე.",
+        "en": "Share the details, time, place and mood on one beautiful page."
+      },
+      "price": {
+        "ka": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "baby",
+      "title": {
+        "ka": "ბავშვის დაბადება & ნათლობა",
+        "en": "Baby & Baptism"
+      },
+      "desc": {
+        "ka": "შექმენი თბილი ციფრული მოგონება ოჯახის განსაკუთრებული დღისთვის.",
+        "en": "A warm digital keepsake for your family's special day."
+      },
+      "price": {
+        "ka": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "custom",
+      "title": {
+        "ka": "ინდივიდუალური",
+        "en": "Custom"
+      },
+      "desc": {
+        "ka": "თუ გაქვს განსხვავებული იდეა, ერთად შევქმნით.",
+        "en": "Have a different idea? Let's create it together."
+      },
+      "price": {
+        "ka": "",
+        "en": ""
+      }
+    }
+  ],
+  "plans": [
+    {
+      "id": "basic",
+      "name": {
+        "ka": "საბაზისო",
+        "en": "Basic"
+      },
+      "price": "49₾",
+      "popular": false,
+      "features": [
+        {
+          "ka": "მზა დიზაინი",
+          "en": "Ready-made design"
+        },
+        {
+          "ka": "პერსონალური ტექსტი",
+          "en": "Personal text"
+        },
+        {
+          "ka": "ფოტოები",
+          "en": "Photos"
+        },
+        {
+          "ka": "მუსიკა",
+          "en": "Music"
+        },
+        {
+          "ka": "პერსონალური ლინკი",
+          "en": "Personal link"
+        }
+      ]
+    },
+    {
+      "id": "premium",
+      "name": {
+        "ka": "პრემიუმი",
+        "en": "Premium"
+      },
+      "price": "89₾",
+      "popular": true,
+      "features": [
+        {
+          "ka": "ყველაფერი საბაზისო პაკეტიდან",
+          "en": "Everything in Basic"
+        },
+        {
+          "ka": "ინდივიდუალური ფერები",
+          "en": "Custom colors"
+        },
+        {
+          "ka": "ანიმაციები",
+          "en": "Animations"
+        },
+        {
+          "ka": "ფოტოგალერეა",
+          "en": "Gallery"
+        },
+        {
+          "ka": "უკუთვლა",
+          "en": "Countdown"
+        },
+        {
+          "ka": "ლოკაცია / რუკა",
+          "en": "Location / Map"
+        }
+      ]
+    },
+    {
+      "id": "custom",
+      "name": {
+        "ka": "ინდივიდუალური",
+        "en": "Custom"
+      },
+      "price": "149₾+",
+      "popular": false,
+      "features": [
+        {
+          "ka": "უნიკალური დიზაინი",
+          "en": "Unique design"
+        },
+        {
+          "ka": "ინდივიდუალური ანიმაციები",
+          "en": "Custom animations"
+        },
+        {
+          "ka": "მრავალი სექცია",
+          "en": "Multiple sections"
+        },
+        {
+          "ka": "განსაკუთრებული მოთხოვნები",
+          "en": "Special requests"
+        }
+      ]
+    }
+  ],
+  "work": [
+    {
+      "id": "love-story",
+      "title": {
+        "ka": "ნიკა & მარი",
+        "en": "Nika & Mari"
+      },
+      "category": {
+        "ka": "სასიყვარულო ისტორია",
+        "en": "Love Story"
+      },
+      "desc": {
+        "ka": "მათი ისტორია — პირველი შეხვედრიდან დღემდე, ერთ რომანტიკულ გვერდზე.",
+        "en": "Their story — from the first meeting to today, on one romantic page."
+      },
+      "price": "",
+      "link": "demos/love.html",
+      "theme": "rose",
+      "image": "",
+      "screen": {
+        "label": {
+          "ka": "ჩვენი ისტორია",
+          "en": "Our story"
+        },
+        "title": {
+          "ka": "ნიკა\n♥ მარი",
+          "en": "Nika\n♥ Mari"
+        },
+        "date": {
+          "ka": "2023 წლიდან",
+          "en": "Since 2023"
+        }
+      }
+    },
+    {
+      "id": "birthday",
+      "title": {
+        "ka": "ანა — 20 წელი",
+        "en": "Ana — 20th Birthday"
+      },
+      "category": {
+        "ka": "დაბადების დღე",
+        "en": "Birthday"
+      },
+      "desc": {
+        "ka": "საიუბილეო მილოცვა მოგონებებით, სურვილებით და წვეულების დეტალებით.",
+        "en": "A birthday surprise with memories, wishes and all the party details."
+      },
+      "price": "",
+      "link": "demos/birthday.html",
+      "theme": "sage",
+      "image": "",
+      "screen": {
+        "label": {
+          "ka": "დაბადების დღე",
+          "en": "Birthday"
+        },
+        "title": {
+          "ka": "გილოცავ,\nანა!",
+          "en": "Happy\nBirthday,\nAna"
+        },
+        "date": {
+          "ka": "20 წელი",
+          "en": "20 years"
+        }
+      }
+    },
+    {
+      "id": "wedding",
+      "title": {
+        "ka": "გიორგი & სალომე",
+        "en": "Giorgi & Salome"
+      },
+      "category": {
+        "ka": "ქორწილი",
+        "en": "Wedding"
+      },
+      "desc": {
+        "ka": "ელეგანტური მოსაწვევი უკუთვლით, დღის პროგრამით და ლოკაციით.",
+        "en": "An elegant invitation with a countdown, schedule and location."
+      },
+      "price": "",
+      "link": "demos/wedding.html",
+      "theme": "cream",
+      "image": "",
+      "screen": {
+        "label": {
+          "ka": "ქორწილი",
+          "en": "Wedding"
+        },
+        "title": {
+          "ka": "გიორგი\n& სალომე",
+          "en": "Giorgi\n& Salome"
+        },
+        "date": {
+          "ka": "12 · 06 · 27",
+          "en": "12 · 06 · 27"
+        }
+      }
+    },
+    {
+      "id": "graduation",
+      "title": {
+        "ka": "ლუკა — კურსდამთავრება",
+        "en": "Luka — Graduation"
+      },
+      "category": {
+        "ka": "კურსდამთავრება",
+        "en": "Graduation"
+      },
+      "desc": {
+        "ka": "ახალი თავის დასაწყისი — მიღწევები, მადლობები და ცერემონიის დეტალები.",
+        "en": "The start of a new chapter — achievements, thank-yous and ceremony details."
+      },
+      "price": "",
+      "link": "demos/graduation.html",
+      "theme": "navy",
+      "image": "",
+      "screen": {
+        "label": {
+          "ka": "გამოშვება 2027",
+          "en": "Class of 2027"
+        },
+        "title": {
+          "ka": "ლუკა,\n2027",
+          "en": "Luka's\nGraduation"
+        },
+        "date": {
+          "ka": "ახალი თავი",
+          "en": "The next chapter"
+        }
+      }
+    },
+    {
+      "id": "event",
+      "title": {
+        "ka": "ზაფხულის ღამე",
+        "en": "Summer Night"
+      },
+      "category": {
+        "ka": "ღონისძიება",
+        "en": "Event"
+      },
+      "desc": {
+        "ka": "სახურავზე გამართული წვეულების მოსაწვევი — დრო, ადგილი და დრესკოდი.",
+        "en": "A rooftop party invitation — time, place and dress code."
+      },
+      "price": "",
+      "link": "demos/event.html",
+      "theme": "sand",
+      "image": "",
+      "screen": {
+        "label": {
+          "ka": "ღონისძიება",
+          "en": "Event"
+        },
+        "title": {
+          "ka": "ზაფხულის\nღამე",
+          "en": "Summer\nNight"
+        },
+        "date": {
+          "ka": "სახურავი · 21:00",
+          "en": "Rooftop · 9 PM"
+        }
+      }
+    },
+    {
+      "id": "baby",
+      "title": {
+        "ka": "მოგესალმები, პატარა ლუკა",
+        "en": "Welcome Baby Luka"
+      },
+      "category": {
+        "ka": "ბავშვის დაბადება",
+        "en": "Baby Announcement"
+      },
+      "desc": {
+        "ka": "თბილი ციფრული ანონსი ოჯახის ახალი წევრისთვის.",
+        "en": "A warm digital announcement for the newest family member."
+      },
+      "price": "",
+      "link": "demos/baby.html",
+      "theme": "sky",
+      "image": "",
+      "screen": {
+        "label": {
+          "ka": "ბიჭია!",
+          "en": "It's a boy"
+        },
+        "title": {
+          "ka": "მოგესალმები,\nლუკა",
+          "en": "Welcome\nBaby\nLuka"
+        },
+        "date": {
+          "ka": "02 · 05 · 26",
+          "en": "Born 02 · 05 · 26"
+        }
+      }
+    },
+    {
+      "id": "wedding-envelope",
+      "title": {
+        "ka": "ლევანი & ნინო",
+        "en": "Levani & Nino"
+      },
+      "category": {
+        "ka": "ქორწილი · 3D კონვერტი",
+        "en": "Wedding · 3D envelope"
+      },
+      "desc": {
+        "ka": "შეეხე ცვილის ბეჭედს — კონვერტი იხსნება და მოსაწვევში შედიხარ: უკუთვლა, დღის განრიგი, გალერეა და RSVP.",
+        "en": "Tap the wax seal — the envelope opens and you step into the invitation: countdown, schedule, gallery and RSVP."
+      },
+      "price": "",
+      "link": "demos/wedding-envelope/index.html",
+      "theme": "ivory",
+      "image": "",
+      "screen": {
+        "label": {
+          "ka": "მოსაწვევი",
+          "en": "Invitation"
+        },
+        "title": {
+          "ka": "ლევანი\n& ნინო",
+          "en": "Levani\n& Nino"
+        },
+        "date": {
+          "ka": "19 · 06 · 27",
+          "en": "19 · 06 · 27"
+        }
+      }
+    },
+    {
+      "id": "birthday-night",
+      "title": {
+        "ka": "საბა 30 — ნეონის ღამე",
+        "en": "Saba 30 — Neon Night"
+      },
+      "category": {
+        "ka": "დაბადების დღე · წვეულება",
+        "en": "Birthday · Party"
+      },
+      "desc": {
+        "ka": "ჩააქრე სანთლები, გაასკდე ბუშტები და აიღე ბილეთი — ნეონი, კონფეტი და ცოცხალი უკუთვლა.",
+        "en": "Blow out the candles, pop the balloons, grab your ticket — neon, confetti and a live countdown."
+      },
+      "price": "",
+      "link": "demos/birthday-night/index.html",
+      "theme": "neon",
+      "image": "",
+      "screen": {
+        "label": {
+          "ka": "ღამის წვეულება",
+          "en": "Night party"
+        },
+        "title": {
+          "ka": "საბა\n30!",
+          "en": "Saba\nturns 30"
+        },
+        "date": {
+          "ka": "შაბ · 22:00",
+          "en": "Sat · 10 PM"
+        }
+      }
+    },
+    {
+      "id": "proposal",
+      "title": {
+        "ka": "ცოლად გამომყვები?",
+        "en": "Will you marry me?"
+      },
+      "category": {
+        "ka": "ხელის თხოვნა · სიურპრიზი",
+        "en": "Proposal · Surprise"
+      },
+      "desc": {
+        "ka": "კინემატოგრაფიული ისტორია ეკრან-ეკრან, ბოლოს კი კითხვა, რომელზეც „არას“ თქმა შეუძლებელია. ხუმრობით საჩუქრადაც მუშაობს.",
+        "en": "A cinematic story, screen by screen — ending with a question nobody can say no to. Works as a joke gift too."
+      },
+      "price": "",
+      "link": "demos/proposal/index.html",
+      "theme": "noir",
+      "image": "",
+      "screen": {
+        "label": {
+          "ka": "ჩვენი ფილმი",
+          "en": "Our film"
+        },
+        "title": {
+          "ka": "ცოლად\nგამომყვები? ♥",
+          "en": "Will you\nmarry me? ♥"
+        },
+        "date": {
+          "ka": "დიახ · დაფიქრება",
+          "en": "Yes · Let me think"
+        }
+      }
+    }
+  ],
+  "contact": {
+    "instagram": "",
+    "tiktok": "",
+    "whatsapp": "",
+    "email": "",
+    "message": {
+      "ka": "გამარჯობა MOMENTLY! მინდა შევქმნა პერსონალიზებული ვებსაიტი. მაინტერესებს დეტალები.",
+      "en": "Hi MOMENTLY! I'd like to create a personalized website. I'd like to know more about the details."
+    }
+  }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#faf6f0">
+  <title>MOMENTLY · Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&family=Noto+Sans+Georgian:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+
+<!-- Shown until the session check answers: nothing else is rendered before auth is confirmed -->
+<div class="boot" id="boot" role="status">Loading…</div>
+
+<!-- ============ LOGIN ============ -->
+<main class="login" id="login" hidden>
+  <form class="card login__card" id="loginForm" novalidate>
+    <p class="logo">MOMENTLY</p>
+    <h1>Admin</h1>
+    <label class="field">
+      <span>Password</span>
+      <input type="password" id="password" autocomplete="current-password" required>
+    </label>
+    <button type="submit" class="btn btn--dark btn--block" id="loginBtn">Log in</button>
+    <p class="login__error" id="loginError" role="alert" hidden></p>
+  </form>
+</main>
+
+<!-- ============ APP ============ -->
+<div class="app" id="app" hidden>
+  <header class="top">
+    <p class="logo">MOMENTLY <small>admin</small></p>
+    <div class="top__actions">
+      <a class="btn btn--ghost btn--sm" href="/" target="_blank" rel="noopener">View site ↗</a>
+      <button type="button" class="btn btn--ghost btn--sm" id="logoutBtn">Log out</button>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" role="tablist" aria-label="Sections">
+    <span class="tabs__group">Content</span>
+    <button type="button" role="tab" data-tab="hero">Hero</button>
+    <button type="button" role="tab" data-tab="services">Services</button>
+    <button type="button" role="tab" data-tab="plans">Pricing</button>
+    <button type="button" role="tab" data-tab="work">Our Work</button>
+    <button type="button" role="tab" data-tab="contact">Contact</button>
+    <span class="tabs__sep" aria-hidden="true"></span>
+    <button type="button" role="tab" data-tab="orders">Orders <b class="count" id="ordersCount" hidden></b></button>
+  </nav>
+
+  <main class="panel" id="panel" role="tabpanel"></main>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MOMENTLY — პერსონალიზებული ვებსაიტები განსაკუთრებული მომენტებისთვის</title>
+  <meta name="description" content="პერსონალიზებული პატარა ვებსაიტები სიყვარულისთვის, დაბადების დღეებისთვის, ქორწილებისთვის და ყველა განსაკუთრებული მომენტისთვის.">
+  <meta name="theme-color" content="#faf6f0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Sans+Georgian:wght@300;400;500;600&family=Noto+Serif+Georgian:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!--
+  Text on this page is written in Georgian (the default language).
+  All translations, both Georgian and English, live in translations.js.
+  Elements marked with data-i18n are filled from there.
+-->
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-wa" viewBox="0 0 24 24">
+    <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+    <g transform="translate(7.3 7) scale(.4)"><path fill="currentColor" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></g>
+  </symbol>
+</svg>
+
+<a href="#main" class="skip-link" data-i18n="a11y.skip">მთავარ შინაარსზე გადასვლა</a>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#home" class="logo">MOMENTLY</a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#home" data-i18n="nav.home">მთავარი</a>
+      <a href="#services" data-i18n="nav.services">სერვისები</a>
+      <a href="#contact" data-i18n="nav.contact">კონტაქტი</a>
+      <!-- mobile menu only: language switcher -->
+      <div class="lang nav__lang-mobile" role="group" aria-label="ენის არჩევა" data-i18n-attr="aria-label:a11y.lang">
+        <button type="button" class="lang__btn" data-lang="ka" lang="ka" aria-pressed="true">ქართული</button>
+        <span class="lang__sep" aria-hidden="true">|</span>
+        <button type="button" class="lang__btn" data-lang="en" lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="#contact" class="btn btn--dark nav__cta-mobile" data-wa="general"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="nav.cta">შექმენი შენი</span></a>
+    </nav>
+    <div class="header__actions">
+      <div class="lang header__lang" role="group" aria-label="ენის არჩევა" data-i18n-attr="aria-label:a11y.lang">
+        <button type="button" class="lang__btn" data-lang="ka" lang="ka" aria-pressed="true">ქართული</button>
+        <span class="lang__sep" aria-hidden="true">|</span>
+        <button type="button" class="lang__btn" data-lang="en" lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="#contact" class="btn btn--dark header__cta" data-wa="general" data-i18n="nav.cta">შექმენი შენი</a>
+      <button class="burger" id="burger" aria-controls="nav" aria-expanded="false" aria-label="მენიუს გახსნა"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="container hero__inner">
+    <div class="hero__text fade">
+      <p class="eyebrow" data-i18n="hero.eyebrow">პერსონალიზებული მინი-ვებსაიტები</p>
+      <h1><span data-i18n="hero.titleMain">გახადე შენი განსაკუთრებული მომენტი</span> <em data-i18n="hero.titleAccent">დაუვიწყარი.</em></h1>
+      <p class="lead" data-i18n="hero.lead">პერსონალიზებული პატარა ვებსაიტები სიყვარულისთვის, დაბადების დღეებისთვის, ქორწილებისთვის და იმ მომენტებისთვის, რომლებიც განსაკუთრებულად უნდა დარჩეს.</p>
+      <div class="hero__buttons">
+        <a href="#contact" class="btn btn--dark btn--cta" data-wa="general"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="cta.moment">შექმენი შენი მომენტი</span></a>
+        <a href="#work" class="btn btn--ghost" data-i18n="hero.cta2">ნახე ნამუშევრები</a>
+      </div>
+      <p class="hero__note" data-i18n="hero.note">ერთი ლინკი. უამრავი მოგონება.</p>
+    </div>
+
+    <div class="hero__visual fade" aria-hidden="true">
+      <div class="blob"></div>
+      <!-- Left phone: birthday -->
+      <div class="phone phone--side phone--left">
+        <div class="screen theme-sage">
+          <span class="s-small" data-i18n="mock.bday.small">გეპატიჟებით</span>
+          <span class="s-title" data-i18n-html="mock.bday.title">ანა<br>20 წლის ხდება</span>
+          <span class="s-line"></span>
+          <span class="s-small" data-i18n="mock.bday.date">შაბ · 14 ნოემბერი</span>
+          <span class="s-btn" data-i18n="mock.bday.btn">მოვალ!</span>
+        </div>
+      </div>
+      <!-- Center phone: wedding -->
+      <div class="phone phone--main">
+        <div class="screen theme-cream">
+          <span class="s-small" data-i18n="mock.wed.small">ოჯახებთან ერთად გიწვევენ</span>
+          <span class="s-title s-title--lg" data-i18n-html="mock.wed.title">გიორგი<br><i>&amp;</i><br>სალომე</span>
+          <span class="s-line"></span>
+          <span class="s-small">12 · 06 · 2027</span>
+          <span class="s-small" data-i18n="mock.wed.place">თბილისი, საქართველო</span>
+          <span class="s-btn" data-i18n="mock.wed.btn">მოსაწვევის გახსნა</span>
+        </div>
+      </div>
+      <!-- Right phone: love -->
+      <div class="phone phone--side phone--right">
+        <div class="screen theme-rose">
+          <span class="s-small" data-i18n="mock.love.small">ჩვენი ისტორია</span>
+          <span class="s-title" data-i18n-html="mock.love.title">3 წელი<br>ერთად</span>
+          <span class="s-heart">♥</span>
+          <span class="s-small" data-i18n="mock.love.hint">გადაფურცლე</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services">
+  <div class="container">
+    <header class="section__head fade">
+      <p class="eyebrow" data-i18n="services.eyebrow">სერვისები</p>
+      <h2 data-i18n="services.title">რას ვქმნით</h2>
+    </header>
+
+    <div class="services">
+      <article class="card service service--love fade" data-num="01" data-emoji="❤️" data-stagger="0">
+        <span class="icon" aria-hidden="true">❤️</span>
+        <h3 data-i18n="svc.love.title">სიყვარული &amp; წლისთავი</h3>
+        <p data-i18n="svc.love.desc">შექმენი თქვენი ისტორიისთვის შექმნილი უნიკალური ვებსაიტი.</p>
+        <div class="service__foot"><a href="#contact" class="btn btn--small" data-wa="love" data-i18n="nav.cta">შექმენი შენი</a><span class="service__price" data-i18n="svc.love.price" hidden></span></div>
+      </article>
+      <article class="card service service--birthday fade" data-num="02" data-stagger="1">
+        <span class="icon" aria-hidden="true">🎂</span>
+        <h3 data-i18n="svc.birthday.title">დაბადების დღე</h3>
+        <p data-i18n="svc.birthday.desc">გადააქციე დაბადების დღის მილოცვა განსაკუთრებულ ციფრულ გამოცდილებად.</p>
+        <div class="service__foot"><a href="#contact" class="btn btn--small" data-wa="birthday" data-i18n="nav.cta">შექმენი შენი</a><span class="service__price" data-i18n="svc.birthday.price" hidden></span></div>
+      </article>
+      <article class="card service service--wedding fade" data-num="03" data-emoji="💍" data-stagger="2">
+        <span class="icon" aria-hidden="true">💍</span>
+        <h3 data-i18n="svc.wedding.title">ქორწილი &amp; ნიშნობა</h3>
+        <p data-i18n="svc.wedding.desc">ელეგანტური ციფრული მოწვევა თქვენი განსაკუთრებული დღისთვის.</p>
+        <div class="service__foot"><a href="#contact" class="btn btn--small" data-wa="wedding" data-i18n="nav.cta">შექმენი შენი</a><span class="service__price" data-i18n="svc.wedding.price" hidden></span></div>
+      </article>
+      <article class="card service service--graduation fade" data-num="04" data-stagger="3">
+        <span class="icon" aria-hidden="true">🎓</span>
+        <h3 data-i18n="svc.graduation.title">კურსდამთავრება</h3>
+        <p data-i18n="svc.graduation.desc">დაიმახსოვრე მნიშვნელოვანი ეტაპი პერსონალიზებული ვებსაიტით.</p>
+        <div class="service__foot"><a href="#contact" class="btn btn--small" data-wa="graduation" data-i18n="nav.cta">შექმენი შენი</a><span class="service__price" data-i18n="svc.graduation.price" hidden></span></div>
+      </article>
+      <article class="card service service--event fade" data-num="05" data-stagger="4">
+        <span class="icon" aria-hidden="true">🎉</span>
+        <h3 data-i18n="svc.event.title">ღონისძიებები &amp; წვეულებები</h3>
+        <p data-i18n="svc.event.desc">გააზიარე დეტალები, დრო, ადგილი და განწყობა ერთ ლამაზ გვერდზე.</p>
+        <div class="service__foot"><a href="#contact" class="btn btn--small" data-wa="event" data-i18n="nav.cta">შექმენი შენი</a><span class="service__price" data-i18n="svc.event.price" hidden></span></div>
+      </article>
+      <article class="card service service--baby fade" data-num="06" data-stagger="5">
+        <span class="icon" aria-hidden="true">👶</span>
+        <h3 data-i18n="svc.baby.title">ბავშვის დაბადება &amp; ნათლობა</h3>
+        <p data-i18n="svc.baby.desc">შექმენი თბილი ციფრული მოგონება ოჯახის განსაკუთრებული დღისთვის.</p>
+        <div class="service__foot"><a href="#contact" class="btn btn--small" data-wa="baby" data-i18n="nav.cta">შექმენი შენი</a><span class="service__price" data-i18n="svc.baby.price" hidden></span></div>
+      </article>
+      <article class="card service service--custom fade" data-num="07" data-stagger="6">
+        <span class="icon" aria-hidden="true">✨</span>
+        <h3 data-i18n="svc.custom.title">ინდივიდუალური</h3>
+        <p data-i18n="svc.custom.desc">თუ გაქვს განსხვავებული იდეა, ერთად შევქმნით.</p>
+        <div class="service__foot"><a href="#contact" class="btn btn--small" data-wa="custom" data-i18n="nav.cta">შექმენი შენი</a><span class="service__price" data-i18n="svc.custom.price" hidden></span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUR WORK ============ -->
+<section class="section section--tint" id="work">
+  <div class="container">
+    <header class="section__head fade">
+      <p class="eyebrow" data-i18n="work.eyebrow">ნამუშევრები</p>
+      <h2 data-i18n="work.title">შთაგონება შენი მომენტისთვის.</h2>
+      <p data-i18n="work.note">ეს სადემონსტრაციო მაგალითებია — შენი ვებსაიტი მთლიანად შენს ისტორიაზე იქნება მორგებული.</p>
+    </header>
+
+    <div class="grid work" id="workGrid">
+
+      <article class="project fade">
+        <a class="thumb theme-rose" href="demos/love.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <span class="demo-tag" data-i18n="work.badge">დემო</span>
+          <div class="mini">
+            <span class="mini__bar" aria-hidden="true"><b>9:41</b><i></i><b>●●●</b></span>
+            <svg class="mini__deco" viewBox="0 0 90 160" aria-hidden="true">
+              <g class="fl"><path d="M8 26 C 14 18, 20 14, 30 12" class="ln"/><path d="M14 20 c-3-3-1-7 3-5 M22 15 c-2-4 2-6 4-3" class="ln"/></g>
+              <g class="fl" fill="currentColor"><path transform="translate(74 24) scale(1.3)" d="M0 1.5C0 0-2.5-.5-2.5 1.2 -2.5 2.8 0 4 0 5 0 4 2.5 2.8 2.5 1.2 2.5-.5 0 0 0 1.5Z"/></g>
+              <g class="fl" fill="currentColor" opacity=".6"><path transform="translate(14 126) scale(1)" d="M0 1.5C0 0-2.5-.5-2.5 1.2 -2.5 2.8 0 4 0 5 0 4 2.5 2.8 2.5 1.2 2.5-.5 0 0 0 1.5Z"/></g>
+              <g class="fl" fill="currentColor" opacity=".45"><path transform="translate(78 118) scale(.8)" d="M0 1.5C0 0-2.5-.5-2.5 1.2 -2.5 2.8 0 4 0 5 0 4 2.5 2.8 2.5 1.2 2.5-.5 0 0 0 1.5Z"/></g>
+            </svg>
+            <span class="s-small" data-i18n="mock.love.small">ჩვენი ისტორია</span>
+            <span class="s-title" data-i18n-html="p1.mini">ნიკა<br><i>♥</i> მარი</span>
+            <span class="mini__div" aria-hidden="true"><i></i><b>♥</b><i></i></span>
+            <span class="s-small mini__date" data-i18n="p1.miniDate">2023 წლიდან</span>
+            <span class="mini__btn" data-i18n="work.open">გახსენი</span>
+            <span class="mini__swipe" aria-hidden="true"></span>
+          </div>
+        </a>
+        <div class="project__info">
+          <p class="project__cat" data-i18n="p1.cat">სასიყვარულო ისტორია</p>
+          <h3 id="p1-name" data-i18n="p1.name">ნიკა &amp; მარი</h3>
+          <p class="project__desc" data-i18n="p1.desc">მათი ისტორია — პირველი შეხვედრიდან დღემდე, ერთ რომანტიკულ გვერდზე.</p>
+        </div>
+        <a class="btn btn--small" href="demos/love.html" target="_blank" rel="noopener" aria-describedby="p1-name"><span data-i18n="work.view">ნახე დემო</span><span aria-hidden="true">&nbsp;↗</span></a>
+      </article>
+
+      <article class="project fade">
+        <a class="thumb theme-sage" href="demos/birthday.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <span class="demo-tag" data-i18n="work.badge">დემო</span>
+          <div class="mini">
+            <span class="mini__bar" aria-hidden="true"><b>9:41</b><i></i><b>●●●</b></span>
+            <svg class="mini__deco" viewBox="0 0 90 160" aria-hidden="true">
+              <g class="fl"><ellipse cx="72" cy="20" rx="6" ry="7.5" fill="#e8a9b8"/><path d="M72 27.5 C 70 32, 74 36, 71 42" class="ln"/><ellipse cx="80" cy="27" rx="4.5" ry="5.6" fill="#c6b6ea"/><path d="M80 32.6 C 82 36, 78 40, 81 45" class="ln"/></g>
+              <g class="fl"><circle cx="12" cy="22" r="1.6" fill="#f0c872"/><rect x="20" y="14" width="3" height="1.6" rx=".6" fill="#e8a9b8" transform="rotate(30 21 15)"/><circle cx="8" cy="40" r="1.2" fill="currentColor"/></g>
+              <g class="fl"><circle cx="14" cy="130" r="1.4" fill="#c6b6ea"/><rect x="74" y="132" width="3" height="1.6" rx=".6" fill="#f0c872" transform="rotate(-25 75 133)"/><circle cx="82" cy="118" r="1.3" fill="#e8a9b8"/><circle cx="22" cy="142" r="1" fill="currentColor"/></g>
+            </svg>
+            <span class="s-small" data-i18n="p2.miniSmall">დაბადების დღე</span>
+            <span class="s-title" data-i18n-html="p2.mini">გილოცავ,<br>ანა!</span>
+            <span class="mini__div" aria-hidden="true"><i></i><b>✦</b><i></i></span>
+            <span class="s-small mini__date" data-i18n="p2.miniDate">20 წელი</span>
+            <span class="mini__btn" data-i18n="work.open">გახსენი</span>
+            <span class="mini__swipe" aria-hidden="true"></span>
+          </div>
+        </a>
+        <div class="project__info">
+          <p class="project__cat" data-i18n="p2.cat">დაბადების დღე</p>
+          <h3 id="p2-name" data-i18n="p2.name">ანა — 20 წელი</h3>
+          <p class="project__desc" data-i18n="p2.desc">საიუბილეო მილოცვა მოგონებებით, სურვილებით და წვეულების დეტალებით.</p>
+        </div>
+        <a class="btn btn--small" href="demos/birthday.html" target="_blank" rel="noopener" aria-describedby="p2-name"><span data-i18n="work.view">ნახე დემო</span><span aria-hidden="true">&nbsp;↗</span></a>
+      </article>
+
+      <article class="project fade">
+        <a class="thumb theme-cream" href="demos/wedding.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <span class="demo-tag" data-i18n="work.badge">დემო</span>
+          <div class="mini">
+            <span class="mini__bar" aria-hidden="true"><b>9:41</b><i></i><b>●●●</b></span>
+            <svg class="mini__deco" viewBox="0 0 90 160" aria-hidden="true">
+              <g class="fl"><path d="M14 24 Q 45 6 76 24" class="ln"/><path d="M26 16.5 c-1-4 2-6 4-4 M38 12 c0-4 3-5 5-3 M52 12 c1-4 4-4 5-1 M64 16.5 c2-3 5-2 5 1" class="ln"/></g>
+              <g class="fl"><path d="M14 136 Q 45 154 76 136" class="ln"/><path d="M26 143.5 c-1 4 2 6 4 4 M64 143.5 c2 3 5 2 5-1" class="ln"/></g>
+            </svg>
+            <span class="s-small" data-i18n="p3.miniSmall">ქორწილი</span>
+            <svg class="mini__rings" viewBox="0 0 24 12" aria-hidden="true"><circle cx="8.5" cy="6" r="5"/><circle cx="15.5" cy="6" r="5"/></svg>
+            <span class="s-title" data-i18n-html="p3.mini">გიორგი<br><i>&amp;</i> სალომე</span>
+            <span class="mini__div" aria-hidden="true"><i></i><b>◇</b><i></i></span>
+            <span class="s-small mini__date">12 · 06 · 27</span>
+            <span class="mini__btn" data-i18n="work.open">გახსენი</span>
+            <span class="mini__swipe" aria-hidden="true"></span>
+          </div>
+        </a>
+        <div class="project__info">
+          <p class="project__cat" data-i18n="p3.cat">ქორწილი</p>
+          <h3 id="p3-name" data-i18n="p3.name">გიორგი &amp; სალომე</h3>
+          <p class="project__desc" data-i18n="p3.desc">ელეგანტური მოსაწვევი უკუთვლით, დღის პროგრამით და ლოკაციით.</p>
+        </div>
+        <a class="btn btn--small" href="demos/wedding.html" target="_blank" rel="noopener" aria-describedby="p3-name"><span data-i18n="work.view">ნახე დემო</span><span aria-hidden="true">&nbsp;↗</span></a>
+      </article>
+
+      <article class="project fade">
+        <a class="thumb theme-navy" href="demos/graduation.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <span class="demo-tag" data-i18n="work.badge">დემო</span>
+          <div class="mini">
+            <span class="mini__bar" aria-hidden="true"><b>9:41</b><i></i><b>●●●</b></span>
+            <svg class="mini__deco" viewBox="0 0 90 160" aria-hidden="true" fill="currentColor">
+              <g class="fl"><path transform="translate(16 22)" d="M0-4C.5-.5.5-.5 4 0 .5.5.5.5 0 4-.5.5-.5.5-4 0-.5-.5-.5-.5 0-4Z"/><circle cx="30" cy="12" r=".9"/></g>
+              <g class="fl"><path transform="translate(74 30) scale(.7)" d="M0-4C.5-.5.5-.5 4 0 .5.5.5.5 0 4-.5.5-.5.5-4 0-.5-.5-.5-.5 0-4Z"/><circle cx="64" cy="16" r=".7"/></g>
+              <g class="fl"><path transform="translate(78 128) scale(.9)" d="M0-4C.5-.5.5-.5 4 0 .5.5.5.5 0 4-.5.5-.5.5-4 0-.5-.5-.5-.5 0-4Z"/><circle cx="12" cy="134" r=".8"/><circle cx="20" cy="120" r=".6"/></g>
+            </svg>
+            <span class="s-small" data-i18n="p4.miniSmall">გამოშვება 2027</span>
+            <span class="s-title" data-i18n-html="p4.mini">ლუკა,<br>2027</span>
+            <span class="mini__div" aria-hidden="true"><i></i><b>✦</b><i></i></span>
+            <span class="s-small mini__date" data-i18n="p4.miniDate">ახალი თავი</span>
+            <span class="mini__btn" data-i18n="work.open">გახსენი</span>
+            <span class="mini__swipe" aria-hidden="true"></span>
+          </div>
+        </a>
+        <div class="project__info">
+          <p class="project__cat" data-i18n="p4.cat">კურსდამთავრება</p>
+          <h3 id="p4-name" data-i18n="p4.name">ლუკა — კურსდამთავრება</h3>
+          <p class="project__desc" data-i18n="p4.desc">ახალი თავის დასაწყისი — მიღწევები, მადლობები და ცერემონიის დეტალები.</p>
+        </div>
+        <a class="btn btn--small" href="demos/graduation.html" target="_blank" rel="noopener" aria-describedby="p4-name"><span data-i18n="work.view">ნახე დემო</span><span aria-hidden="true">&nbsp;↗</span></a>
+      </article>
+
+      <article class="project fade">
+        <a class="thumb theme-sand" href="demos/event.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <span class="demo-tag" data-i18n="work.badge">დემო</span>
+          <div class="mini">
+            <span class="mini__bar" aria-hidden="true"><b>9:41</b><i></i><b>●●●</b></span>
+            <svg class="mini__deco" viewBox="0 0 90 160" aria-hidden="true">
+              <g class="fl"><circle cx="45" cy="18" r="7" fill="currentColor" opacity=".35"/><path d="M45 5v3 M34 10l2 2 M56 10l-2 2 M30 19h3 M57 19h3" class="ln"/></g>
+              <g class="fl" fill="currentColor"><circle cx="12" cy="30" r="1.2" opacity=".6"/><circle cx="80" cy="36" r="1" opacity=".5"/><circle cx="16" cy="128" r="1.3" opacity=".5"/><circle cx="76" cy="124" r="1.1" opacity=".6"/></g>
+              <g class="fl"><path d="M8 146 q 9 -5 18 0 t 18 0 t 18 0 t 18 0" class="ln"/></g>
+            </svg>
+            <span class="s-small" data-i18n="p5.miniSmall">ღონისძიება</span>
+            <span class="s-title" data-i18n-html="p5.mini">ზაფხულის<br>ღამე</span>
+            <span class="mini__div" aria-hidden="true"><i></i><b>✦</b><i></i></span>
+            <span class="s-small mini__date" data-i18n="p5.miniDate">სახურავი · 21:00</span>
+            <span class="mini__btn" data-i18n="work.open">გახსენი</span>
+            <span class="mini__swipe" aria-hidden="true"></span>
+          </div>
+        </a>
+        <div class="project__info">
+          <p class="project__cat" data-i18n="p5.cat">ღონისძიება</p>
+          <h3 id="p5-name" data-i18n="p5.name">ზაფხულის ღამე</h3>
+          <p class="project__desc" data-i18n="p5.desc">სახურავზე გამართული წვეულების მოსაწვევი — დრო, ადგილი და დრესკოდი.</p>
+        </div>
+        <a class="btn btn--small" href="demos/event.html" target="_blank" rel="noopener" aria-describedby="p5-name"><span data-i18n="work.view">ნახე დემო</span><span aria-hidden="true">&nbsp;↗</span></a>
+      </article>
+
+      <article class="project fade">
+        <a class="thumb theme-sky" href="demos/baby.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <span class="demo-tag" data-i18n="work.badge">დემო</span>
+          <div class="mini">
+            <span class="mini__bar" aria-hidden="true"><b>9:41</b><i></i><b>●●●</b></span>
+            <svg class="mini__deco" viewBox="0 0 90 160" aria-hidden="true">
+              <g class="fl"><path d="M76 12 A9 9 0 1 0 82 26 A7 7 0 1 1 76 12 Z" fill="#f0dca6"/></g>
+              <g class="fl" fill="#f0dca6"><path transform="translate(16 20) scale(.8)" d="M0-4C.5-.5.5-.5 4 0 .5.5.5.5 0 4-.5.5-.5.5-4 0-.5-.5-.5-.5 0-4Z"/><path transform="translate(60 12) scale(.5)" d="M0-4C.5-.5.5-.5 4 0 .5.5.5.5 0 4-.5.5-.5.5-4 0-.5-.5-.5-.5 0-4Z"/></g>
+              <g class="fl" fill="#fff"><path d="M8 142 a5 5 0 0 1 3-9 a7 7 0 0 1 12-2 a5 5 0 0 1 7 5 a4 4 0 0 1 0 6 z"/><path d="M60 132 a4 4 0 0 1 2-7 a6 6 0 0 1 10-2 a4 4 0 0 1 6 4 a3 3 0 0 1 0 5 z" opacity=".85"/></g>
+            </svg>
+            <span class="s-small" data-i18n="p6.miniSmall">ბიჭია!</span>
+            <span class="s-title" data-i18n-html="p6.mini">მოგესალმები,<br>ლუკა</span>
+            <span class="mini__div" aria-hidden="true"><i></i><b>✧</b><i></i></span>
+            <span class="s-small mini__date" data-i18n="p6.miniDate">02 · 05 · 26</span>
+            <span class="mini__btn" data-i18n="work.open">გახსენი</span>
+            <span class="mini__swipe" aria-hidden="true"></span>
+          </div>
+        </a>
+        <div class="project__info">
+          <p class="project__cat" data-i18n="p6.cat">ბავშვის დაბადება</p>
+          <h3 id="p6-name" data-i18n="p6.name">მოგესალმები, პატარა ლუკა</h3>
+          <p class="project__desc" data-i18n="p6.desc">თბილი ციფრული ანონსი ოჯახის ახალი წევრისთვის.</p>
+        </div>
+        <a class="btn btn--small" href="demos/baby.html" target="_blank" rel="noopener" aria-describedby="p6-name"><span data-i18n="work.view">ნახე დემო</span><span aria-hidden="true">&nbsp;↗</span></a>
+      </article>
+
+      <article class="project fade">
+        <a class="thumb theme-ivory" href="demos/wedding-envelope/index.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <span class="demo-tag" data-i18n="work.badge">დემო</span>
+          <div class="mini">
+            <span class="mini__bar" aria-hidden="true"><b>9:41</b><i></i><b>●●●</b></span>
+            <svg class="mini__deco" viewBox="0 0 90 160" aria-hidden="true">
+              <g class="fl"><rect x="31" y="11" width="28" height="19" rx="1.4" class="ln"/><path d="M31 11 L45 22.5 L59 11" class="ln"/><path d="M31 30 L41 21.5 M59 30 L49 21.5" class="ln" opacity=".55"/><circle cx="45" cy="22.5" r="3.1" fill="#6b1d2b"/><circle cx="45" cy="22.5" r="1.9" fill="none" stroke="#a23447" stroke-width=".5"/></g>
+              <g class="fl" fill="currentColor"><circle cx="12" cy="22" r="1.1"/><circle cx="79" cy="16" r="1.3"/><circle cx="19" cy="40" r=".8"/><circle cx="73" cy="37" r=".9"/><circle cx="84" cy="60" r=".7"/></g>
+              <g class="fl"><path d="M14 132c3-4.5 8.5-3 7 2-1 3.6-6 3.8-7-2z" fill="#e3a3a8" opacity=".85"/><path d="M73 124c2.6-3.8 7.2-2.6 6 1.7-.9 3-5.1 3.2-6-1.7z" fill="#ecc9bf"/><path d="M62 144c2-3 5.8-2 4.8 1.4-.7 2.4-4 2.6-4.8-1.4z" fill="#d8b57e" opacity=".8"/><circle cx="26" cy="146" r=".9" fill="currentColor"/></g>
+            </svg>
+            <span class="s-small" data-i18n="p7.miniSmall">მოსაწვევი</span>
+            <span class="s-title" data-i18n-html="p7.mini">ლევანი<br><i>&amp;</i> ნინო</span>
+            <span class="mini__div" aria-hidden="true"><i></i><b>◇</b><i></i></span>
+            <span class="s-small mini__date" data-i18n="p7.miniDate">19 · 06 · 27</span>
+            <span class="mini__btn" data-i18n="work.open">გახსენი</span>
+            <span class="mini__swipe" aria-hidden="true"></span>
+          </div>
+        </a>
+        <div class="project__info">
+          <p class="project__cat" data-i18n="p7.cat">ქორწილი · 3D კონვერტი</p>
+          <h3 id="p7-name" data-i18n="p7.name">ლევანი &amp; ნინო</h3>
+          <p class="project__desc" data-i18n="p7.desc">შეეხე ცვილის ბეჭედს — კონვერტი იხსნება და მოსაწვევში შედიხარ: უკუთვლა, დღის განრიგი, გალერეა და RSVP.</p>
+        </div>
+        <a class="btn btn--small" href="demos/wedding-envelope/index.html" target="_blank" rel="noopener" aria-describedby="p7-name"><span data-i18n="work.view">ნახე დემო</span><span aria-hidden="true">&nbsp;↗</span></a>
+      </article>
+
+      <article class="project fade">
+        <a class="thumb theme-neon" href="demos/birthday-night/index.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <span class="demo-tag" data-i18n="work.badge">დემო</span>
+          <div class="mini">
+            <span class="mini__bar" aria-hidden="true"><b>9:41</b><i></i><b>●●●</b></span>
+            <svg class="mini__deco" viewBox="0 0 90 160" aria-hidden="true">
+              <g class="fl"><ellipse cx="72" cy="21" rx="6" ry="7.5" fill="#ff3fa4"/><path d="M72 28.5 C 70 33, 74 37, 71 43" class="ln"/><ellipse cx="81" cy="29" rx="4.6" ry="5.8" fill="#37f3ff"/><path d="M81 34.8 C 83 38, 79 42, 82 47" class="ln"/><ellipse cx="14" cy="30" rx="4.4" ry="5.5" fill="#ffd24a"/><path d="M14 35.5 C 12 39, 16 42, 13 47" class="ln"/></g>
+              <g class="fl"><rect x="24" y="14" width="3" height="1.6" rx=".6" fill="#37f3ff" transform="rotate(30 25 15)"/><circle cx="36" cy="22" r="1.1" fill="#ffd24a"/><rect x="56" y="12" width="3" height="1.6" rx=".6" fill="#ff3fa4" transform="rotate(-25 57 13)"/><circle cx="8" cy="58" r="1" fill="#fff"/></g>
+              <g class="fl"><path d="M6 150 L84 150 M14 142 L76 142" stroke="#ff3fa4" stroke-width=".5" opacity=".6"/><path d="M45 136 L20 160 M45 136 L70 160 M45 136 L45 160" stroke="#ff3fa4" stroke-width=".5" opacity=".45"/><rect x="72" y="118" width="3" height="1.6" rx=".6" fill="#ffd24a" transform="rotate(-25 73 119)"/><circle cx="16" cy="122" r="1.2" fill="#37f3ff"/></g>
+            </svg>
+            <span class="s-small" data-i18n="p8.miniSmall">ღამის წვეულება</span>
+            <span class="s-title" data-i18n-html="p8.mini">საბა<br>30!</span>
+            <span class="mini__div" aria-hidden="true"><i></i><b>✦</b><i></i></span>
+            <span class="s-small mini__date" data-i18n="p8.miniDate">შაბ · 22:00</span>
+            <span class="mini__btn" data-i18n="work.open">გახსენი</span>
+            <span class="mini__swipe" aria-hidden="true"></span>
+          </div>
+        </a>
+        <div class="project__info">
+          <p class="project__cat" data-i18n="p8.cat">დაბადების დღე · წვეულება</p>
+          <h3 id="p8-name" data-i18n="p8.name">საბა 30 — ნეონის ღამე</h3>
+          <p class="project__desc" data-i18n="p8.desc">ჩააქრე სანთლები, გაასკდე ბუშტები და აიღე ბილეთი — ნეონი, კონფეტი და ცოცხალი უკუთვლა.</p>
+        </div>
+        <a class="btn btn--small" href="demos/birthday-night/index.html" target="_blank" rel="noopener" aria-describedby="p8-name"><span data-i18n="work.view">ნახე დემო</span><span aria-hidden="true">&nbsp;↗</span></a>
+      </article>
+
+      <article class="project fade">
+        <a class="thumb theme-noir" href="demos/proposal/index.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <span class="demo-tag" data-i18n="work.badge">დემო</span>
+          <div class="mini">
+            <span class="mini__bar" aria-hidden="true"><b>9:41</b><i></i><b>●●●</b></span>
+            <svg class="mini__deco" viewBox="0 0 90 160" aria-hidden="true">
+              <g class="fl"><path d="M72 12 A9 9 0 1 0 79 27 A7 7 0 1 1 72 12 Z" fill="#dcbb7c"/><path transform="translate(18 20) scale(.7)" d="M0-4C.5-.5.5-.5 4 0 .5.5.5.5 0 4-.5.5-.5.5-4 0-.5-.5-.5-.5 0-4Z" fill="#f4dfb0"/><circle cx="36" cy="12" r=".7" fill="#fff"/><circle cx="54" cy="30" r=".6" fill="#fff"/></g>
+              <g class="fl" fill="currentColor"><path transform="translate(14 60) scale(1)" d="M0 1.5C0 0-2.5-.5-2.5 1.2 -2.5 2.8 0 4 0 5 0 4 2.5 2.8 2.5 1.2 2.5-.5 0 0 0 1.5Z" opacity=".6"/><path transform="translate(80 104) scale(.8)" d="M0 1.5C0 0-2.5-.5-2.5 1.2 -2.5 2.8 0 4 0 5 0 4 2.5 2.8 2.5 1.2 2.5-.5 0 0 0 1.5Z" opacity=".45"/></g>
+              <g class="fl"><path transform="translate(20 128) scale(1.3)" d="M0 1.5C0 0-2.5-.5-2.5 1.2 -2.5 2.8 0 4 0 5 0 4 2.5 2.8 2.5 1.2 2.5-.5 0 0 0 1.5Z" fill="currentColor" opacity=".8"/><circle cx="70" cy="138" r="5" fill="none" stroke="#dcbb7c" stroke-width="1.2"/><path d="M67.6 131.4 70 128.6 72.4 131.4 70 133.2z" fill="#fff"/><circle cx="82" cy="120" r=".7" fill="#fff"/></g>
+            </svg>
+            <span class="s-small" data-i18n="p9.miniSmall">ჩვენი ფილმი</span>
+            <span class="s-title" data-i18n-html="p9.mini">ცოლად<br>გამომყვები? <i>♥</i></span>
+            <span class="mini__div" aria-hidden="true"><i></i><b>♥</b><i></i></span>
+            <span class="s-small mini__date" data-i18n="p9.miniDate">დიახ · დაფიქრება</span>
+            <span class="mini__btn" data-i18n="work.open">გახსენი</span>
+            <span class="mini__swipe" aria-hidden="true"></span>
+          </div>
+        </a>
+        <div class="project__info">
+          <p class="project__cat" data-i18n="p9.cat">ხელის თხოვნა · სიურპრიზი</p>
+          <h3 id="p9-name" data-i18n="p9.name">ცოლად გამომყვები?</h3>
+          <p class="project__desc" data-i18n="p9.desc">კინემატოგრაფიული ისტორია ეკრან-ეკრან, ბოლოს კი კითხვა, რომელზეც „არას“ თქმა შეუძლებელია. ხუმრობით საჩუქრადაც მუშაობს.</p>
+        </div>
+        <a class="btn btn--small" href="demos/proposal/index.html" target="_blank" rel="noopener" aria-describedby="p9-name"><span data-i18n="work.view">ნახე დემო</span><span aria-hidden="true">&nbsp;↗</span></a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section" id="pricing">
+  <div class="container">
+    <header class="section__head fade">
+      <p class="eyebrow" data-i18n="pricing.eyebrow">ფასები</p>
+      <h2 data-i18n="pricing.title">მარტივი და გამჭვირვალე ფასები</h2>
+    </header>
+
+    <div class="grid pricing">
+      <article class="card plan fade" data-plan="basic">
+        <h3 data-i18n="plan.basic">საბაზისო</h3>
+        <p class="plan__price">49₾</p>
+        <ul>
+          <li data-i18n="plan.basic.f1">მზა დიზაინი</li>
+          <li data-i18n="plan.basic.f2">პერსონალური ტექსტი</li>
+          <li data-i18n="plan.basic.f3">ფოტოები</li>
+          <li data-i18n="plan.basic.f4">მუსიკა</li>
+          <li data-i18n="plan.basic.f5">პერსონალური ლინკი</li>
+        </ul>
+        <a href="#contact" class="btn btn--ghost" data-wa="basic" data-i18n="nav.cta">შექმენი შენი</a>
+      </article>
+
+      <article class="card plan plan--featured fade" data-plan="premium">
+        <span class="badge" data-i18n="plan.popular">ყველაზე პოპულარული</span>
+        <h3 data-i18n="plan.premium">პრემიუმი</h3>
+        <p class="plan__price">89₾</p>
+        <ul>
+          <li data-i18n="plan.premium.f1">ყველაფერი საბაზისო პაკეტიდან</li>
+          <li data-i18n="plan.premium.f2">ინდივიდუალური ფერები</li>
+          <li data-i18n="plan.premium.f3">ანიმაციები</li>
+          <li data-i18n="plan.premium.f4">ფოტოგალერეა</li>
+          <li data-i18n="plan.premium.f5">უკუთვლა</li>
+          <li data-i18n="plan.premium.f6">ლოკაცია / რუკა</li>
+        </ul>
+        <a href="#contact" class="btn btn--light" data-wa="premium" data-i18n="nav.cta">შექმენი შენი</a>
+      </article>
+
+      <article class="card plan fade" data-plan="custom">
+        <h3 data-i18n="plan.custom">ინდივიდუალური</h3>
+        <p class="plan__price">149₾+</p>
+        <ul>
+          <li data-i18n="plan.custom.f1">უნიკალური დიზაინი</li>
+          <li data-i18n="plan.custom.f2">ინდივიდუალური ანიმაციები</li>
+          <li data-i18n="plan.custom.f3">მრავალი სექცია</li>
+          <li data-i18n="plan.custom.f4">განსაკუთრებული მოთხოვნები</li>
+        </ul>
+        <a href="#contact" class="btn btn--ghost" data-wa="customPlan" data-i18n="nav.cta">შექმენი შენი</a>
+      </article>
+    </div>
+    <p class="pricing__note fade" data-i18n="pricing.note">შეკვეთა და ყველა დეტალი პირადად, WhatsApp-ზე თანხმდება.</p>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section section--tint" id="about">
+  <div class="container about">
+    <div class="about__visual fade" aria-hidden="true">
+      <div class="phone phone--main phone--about">
+        <div class="screen theme-rose">
+          <span class="s-small" data-i18n="mock.about.small">ცოტა მეტი გრძნობით</span>
+          <span class="s-title s-title--lg" data-i18n-html="mock.about.title">მხოლოდ<br><i>შენთვის</i></span>
+          <span class="s-line"></span>
+          <span class="s-small" data-i18n="mock.about.foot">სიყვარულით შექმნილი</span>
+        </div>
+      </div>
+    </div>
+    <div class="about__text fade">
+      <p class="eyebrow" data-i18n="about.eyebrow">ჩვენ შესახებ</p>
+      <h2 data-i18n="about.title">შექმნილია იმ მომენტებისთვის, რომლებიც მნიშვნელოვანია.</h2>
+      <p data-i18n="about.text">MOMENTLY შეიქმნა მათთვის, ვისაც მნიშვნელოვანი მომენტების სხვანაირად აღნიშვნა სურს. ჩვეულებრივი მესიჯის, PDF-ის ან სტანდარტული მოსაწვევის ნაცვლად, შენს ისტორიას, დღესასწაულს და მოგონებებს ლამაზ ციფრულ გამოცდილებად ვაქცევთ — პირადს, თბილს და დასამახსოვრებელს.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section" id="how">
+  <div class="container">
+    <header class="section__head fade">
+      <p class="eyebrow" data-i18n="how.eyebrow">როგორ მუშაობს</p>
+      <h2 data-i18n="how.title">სამი მარტივი ნაბიჯი</h2>
+    </header>
+    <div class="grid steps">
+      <div class="step fade"><span class="step__num">01</span><h3 data-i18n="how.s1.title">მოგვიყევი შენი იდეის შესახებ</h3><p data-i18n="how.s1.text">მოგვწერე WhatsApp-ზე და გვითხარი, როგორი მომენტი გინდა შექმნა.</p></div>
+      <div class="step fade"><span class="step__num">02</span><h3 data-i18n="how.s2.title">ჩვენ შევქმნით</h3><p data-i18n="how.s2.text">ჩვენ შევქმნით შენზე მორგებულ უნიკალურ ვებსაიტს.</p></div>
+      <div class="step fade"><span class="step__num">03</span><h3 data-i18n="how.s3.title">გააზიარე</h3><p data-i18n="how.s3.text">მიიღებ საკუთარ ლინკს და გაუზიარებ იმ ადამიანს, ვისთვისაც ის შექმენი.</p></div>
+    </div>
+    <div class="center fade">
+      <a href="#contact" class="btn btn--dark" data-wa="general"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="how.cta">დაიწყე WhatsApp-ზე</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section section--tint" id="faq">
+  <div class="container">
+    <header class="section__head fade">
+      <p class="eyebrow" data-i18n="faq.eyebrow">კითხვები</p>
+      <h2 data-i18n="faq.title">ხშირად დასმული კითხვები</h2>
+    </header>
+
+    <div class="faq fade">
+      <details class="faq__item">
+        <summary data-i18n="faq.q1">რამდენ ხანში მზადდება ვებსაიტი?</summary>
+        <p data-i18n="faq.a1">საბაზისო ვებსაიტი, როგორც წესი, 1–3 დღეში მზადდება, პრემიუმი და ინდივიდუალური კი — სირთულის მიხედვით, ცოტა მეტ ხანში. ზუსტ ვადას შეკვეთისას შევათანხმებთ. თუ თარიღი ახლოვდება, მოგვწერე — შევეცდებით, მოვასწროთ.</p>
+      </details>
+      <details class="faq__item">
+        <summary data-i18n="faq.q2">შემიძლია ჩემი ფოტოები გამოვიყენო?</summary>
+        <p data-i18n="faq.a2">რა თქმა უნდა. გამოგვიგზავნე ფოტოები WhatsApp-ზე ან ელფოსტით — ჩვენ მათ ისე მოვამზადებთ, რომ ნებისმიერ მოწყობილობაზე ლამაზად გამოჩნდეს და სწრაფად ჩაიტვირთოს.</p>
+      </details>
+      <details class="faq__item">
+        <summary data-i18n="faq.q3">შეიძლება მუსიკის დამატება?</summary>
+        <p data-i18n="faq.a3">კი. შეგიძლია აირჩიო საყვარელი სიმღერა ან მელოდია, რომელიც ვებსაიტზე ფონად დაუკრავს. მუსიკა ყველა პაკეტშია შესული.</p>
+      </details>
+      <details class="faq__item">
+        <summary data-i18n="faq.q4">შემიძლია ცვლილებების მოთხოვნა?</summary>
+        <p data-i18n="faq.a4">კი. ჯერ წინასწარ ვერსიას გაგიზიარებთ და სანამ საბოლოოდ დაამტკიცებ, ტექსტსა და დეტალებს სიამოვნებით შევცვლით.</p>
+      </details>
+      <details class="faq__item">
+        <summary data-i18n="faq.q5">როგორ მივიღებ ჩემს ვებსაიტს?</summary>
+        <p data-i18n="faq.a5">მზა ვებსაიტს მიიღებ პერსონალური ლინკის სახით WhatsApp-ზე ან ელფოსტით. ის ნებისმიერ ტელეფონსა და კომპიუტერზე იხსნება — აპლიკაციის ჩამოტვირთვა საჭირო არ არის.</p>
+      </details>
+      <details class="faq__item">
+        <summary data-i18n="faq.q6">შემიძლია ლინკის გაზიარება WhatsApp-ზე და Instagram-ზე?</summary>
+        <p data-i18n="faq.a6">რა თქმა უნდა. ლინკი შეგიძლია გააზიარო WhatsApp-ზე, Instagram-ზე (სთორიში, ბიოში ან პირად მესიჯში), Messenger-ზე — ყველგან, სადაც ლინკის გაგზავნაა შესაძლებელი.</p>
+      </details>
+    </div>
+
+    <p class="faq__more fade" data-i18n-html="faq.more">სხვა კითხვა გაქვს? <a href="#contact" data-wa="general">მოგვწერე WhatsApp-ზე</a> — სიამოვნებით გიპასუხებთ.</p>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="contact">
+  <div class="container contact">
+    <div class="contact__intro fade">
+      <p class="eyebrow" data-i18n="contact.eyebrow">კონტაქტი</p>
+      <h2 data-i18n="contact.title">მოგვიყევი შენი მომენტის შესახებ.</h2>
+      <p data-i18n="contact.lead">WhatsApp-ზე ყველაზე სწრაფად გიპასუხებთ. თუ გირჩევნია, შეავსე ფორმა და ჩვენ თავად დაგიკავშირდებით.</p>
+
+      <div class="wa-card">
+        <p class="wa-card__label" data-i18n="contact.waLabel">ყველაზე სწრაფი გზა</p>
+        <a href="#contact" class="btn btn--wa btn--block" data-wa="general"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="cta.whatsapp">მოგვწერე WhatsApp-ზე</span></a>
+        <p class="wa-card__note" data-i18n="contact.waNote">შეტყობინება უკვე მომზადებულია — უბრალოდ გააგზავნე.</p>
+      </div>
+
+      <p class="contact__also" data-i18n="contact.also">ასევე შეგიძლია მოგვწერო:</p>
+      <ul class="contact__links">
+        <li><a data-contact="instagram" href="#" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a data-contact="tiktok" href="#" target="_blank" rel="noopener">TikTok</a></li>
+        <li><a data-contact="email" data-config-text="email" href="#">hello@YOUR_DOMAIN</a></li>
+      </ul>
+    </div>
+
+    <form class="form fade" id="contactForm" novalidate>
+      <h3 class="form__title" data-i18n="form.title">ან დაგვიტოვე მოთხოვნა</h3>
+
+      <label><span data-i18n="form.name">სახელი</span>
+        <input type="text" name="name" autocomplete="name" placeholder="შენი სახელი" data-i18n-attr="placeholder:form.namePh" required>
+      </label>
+      <div class="form__row">
+        <label><span data-i18n="form.email">ელფოსტა</span>
+          <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+        </label>
+        <label><span><span data-i18n="form.phone">ტელეფონი / WhatsApp</span> <small data-i18n="form.optional">(არასავალდებულო)</small></span>
+          <input type="tel" name="phone" autocomplete="tel" placeholder="+995 5XX XX XX XX">
+        </label>
+      </div>
+      <label><span data-i18n="form.type">რა ტიპის ვებსაიტი გინდა?</span>
+        <!-- option values stay in English so every email you receive is consistent -->
+        <select name="type" required>
+          <option value="" disabled selected data-i18n="form.typePh">აირჩიე ტიპი</option>
+          <option value="Love / Anniversary" data-i18n="form.opt.love">სიყვარული / წლისთავი</option>
+          <option value="Birthday" data-i18n="form.opt.birthday">დაბადების დღე</option>
+          <option value="Wedding" data-i18n="form.opt.wedding">ქორწილი</option>
+          <option value="Event" data-i18n="form.opt.event">ღონისძიება</option>
+          <option value="Graduation" data-i18n="form.opt.graduation">კურსდამთავრება</option>
+          <option value="Baby / Baptism" data-i18n="form.opt.baby">ბავშვის დაბადება / ნათლობა</option>
+          <option value="Custom" data-i18n="form.opt.custom">ინდივიდუალური</option>
+        </select>
+      </label>
+      <label><span data-i18n="form.message">შეტყობინება</span>
+        <textarea name="message" rows="4" placeholder="მოგვიყევი შენი იდეის, თარიღისა და დეტალების შესახებ…" data-i18n-attr="placeholder:form.messagePh"></textarea>
+      </label>
+
+      <!-- Spam honeypot: humans never see or fill this -->
+      <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <button type="submit" class="btn btn--dark" id="formSubmit" data-i18n="form.submit">მოთხოვნის გაგზავნა</button>
+      <p class="form__status" id="formStatus" role="status" aria-live="polite" hidden></p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final">
+  <div class="container fade">
+    <h2 data-i18n-html="final.title">შენი მომენტი იმსახურებს <em>საკუთარ ისტორიას.</em></h2>
+    <p class="final__lead" data-i18n="final.lead">მოდი, ერთად შევქმნათ რაღაც განსაკუთრებული.</p>
+    <a href="#contact" class="btn btn--light btn--cta" data-wa="general"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="cta.moment">შექმენი შენი მომენტი</span></a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <a href="#home" class="logo">MOMENTLY</a>
+      <p data-i18n="footer.desc">პერსონალიზებული მინი-ვებსაიტები შენი ყველაზე ძვირფასი მომენტებისთვის.</p>
+    </div>
+    <nav class="footer__col" aria-labelledby="footLinks">
+      <p class="footer__title" id="footLinks" data-i18n="footer.links">ნავიგაცია</p>
+      <a href="#home" data-i18n="nav.home">მთავარი</a>
+      <a href="#services" data-i18n="nav.services">სერვისები</a>
+      <a href="#work" data-i18n="nav.work">ნამუშევრები</a>
+      <a href="#pricing" data-i18n="nav.pricing">ფასები</a>
+      <a href="#faq" data-i18n="nav.faq">კითხვები</a>
+      <a href="#contact" data-i18n="nav.contact">კონტაქტი</a>
+    </nav>
+    <div class="footer__col">
+      <p class="footer__title" data-i18n="footer.social">სოციალური ქსელები</p>
+      <a data-contact="instagram" href="#" target="_blank" rel="noopener">Instagram</a>
+      <a data-contact="tiktok" href="#" target="_blank" rel="noopener">TikTok</a>
+      <a href="#contact" data-wa="general">WhatsApp</a>
+    </div>
+    <div class="footer__col">
+      <p class="footer__title" data-i18n="footer.contact">კონტაქტი</p>
+      <a data-contact="email" data-config-text="email" href="#">hello@YOUR_DOMAIN</a>
+    </div>
+  </div>
+  <p class="footer__copy" data-i18n="footer.copy">© 2026 MOMENTLY. ყველა უფლება დაცულია.</p>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a href="#contact" class="wa-float" data-wa="general" aria-label="მოგვწერე WhatsApp-ზე" data-i18n-attr="aria-label:cta.whatsapp">
+  <svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>
+  <span class="wa-float__label" aria-hidden="true" data-i18n="cta.whatsapp">მოგვწერე WhatsApp-ზე</span>
+</a>
+
+<script src="config.js"></script>
+<script src="translations.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

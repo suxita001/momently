@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>საბა 30 — ღამის წვეულება</title>
+  <meta name="description" content="დაბადების დღის წვეულების მოსაწვევი — MOMENTLY-ის დემო.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0a0614">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Noto+Sans+Georgian:wdth,wght@62.5..100,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-locked">
+
+<!-- All texts, the date, place and photos come from CONFIG at the top of script.js. -->
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9.5" r="2.6"/></g></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+  <symbol id="i-music" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></g></symbol>
+</svg>
+
+<canvas class="fx" id="fx" aria-hidden="true"></canvas>
+
+<!-- ============ 1. OPENING: blow out the candles ============ -->
+<section class="cake" id="cake" aria-label="დაბადების დღის ტორტი">
+  <div class="cake__glow" aria-hidden="true"></div>
+
+  <header class="cake__top">
+    <p class="kicker" data-c="opening.kicker"></p>
+    <h1 class="cake__title display" data-c="opening.title"></h1>
+    <p class="cake__sub" data-c="opening.hint"></p>
+  </header>
+
+  <div class="cake__stage" id="cakeStage">
+    <svg class="cake__svg" viewBox="0 0 300 250" aria-hidden="true">
+      <defs>
+        <linearGradient id="tier1" x1="0" x2="1"><stop offset="0" stop-color="#c2307f"/><stop offset=".45" stop-color="#ff5fae"/><stop offset="1" stop-color="#b02872"/></linearGradient>
+        <linearGradient id="tier2" x1="0" x2="1"><stop offset="0" stop-color="#5b36c9"/><stop offset=".45" stop-color="#9b6bff"/><stop offset="1" stop-color="#4f2db3"/></linearGradient>
+        <linearGradient id="cream" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff8fd"/><stop offset="1" stop-color="#f3dcec"/></linearGradient>
+        <radialGradient id="plate" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#4b3a6e"/><stop offset="1" stop-color="#1f1533"/></radialGradient>
+      </defs>
+      <ellipse cx="150" cy="232" rx="136" ry="16" fill="url(#plate)"/>
+      <ellipse cx="150" cy="228" rx="122" ry="11" fill="#2d2147"/>
+      <!-- bottom tier -->
+      <path d="M38 150v70a112 13 0 0 0 224 0v-70z" fill="url(#tier1)"/>
+      <ellipse cx="150" cy="150" rx="112" ry="14" fill="#ff8cc4"/>
+      <path d="M38 150a112 14 0 0 0 224 0v14c-8 0-8 16-16 16s-6-12-14-12-8 22-17 22-7-16-15-16-8 10-16 10-8-18-16-18-8 24-17 24-8-14-16-14-8 12-16 12-8-20-16-20-8 14-16 14-8-10-15-10-8 16-16 16-9-12-17-12-4 6-4 6z" fill="url(#cream)"/>
+      <g fill="#fff" opacity=".9"><circle cx="70" cy="200" r="2.4"/><circle cx="118" cy="210" r="2"/><circle cx="182" cy="206" r="2.4"/><circle cx="230" cy="196" r="2"/></g>
+      <g><rect x="92" y="196" width="8" height="3" rx="1.5" fill="#37f3ff" transform="rotate(30 96 197)"/><rect x="150" y="214" width="8" height="3" rx="1.5" fill="#ffd24a" transform="rotate(-20 154 215)"/><rect x="206" y="214" width="8" height="3" rx="1.5" fill="#37f3ff" transform="rotate(50 210 215)"/><rect x="56" y="214" width="8" height="3" rx="1.5" fill="#ffd24a" transform="rotate(-40 60 215)"/><rect x="244" y="214" width="8" height="3" rx="1.5" fill="#fff" transform="rotate(20 248 215)"/></g>
+      <!-- top tier -->
+      <path d="M74 92v58a76 10 0 0 0 152 0V92z" fill="url(#tier2)"/>
+      <ellipse cx="150" cy="92" rx="76" ry="11" fill="#b89aff"/>
+      <path d="M74 92a76 11 0 0 0 152 0v10c-7 0-7 14-14 14s-6-10-13-10-7 18-14 18-6-12-13-12-7 8-14 8-7-15-14-15-7 20-14 20-7-11-14-11-7 9-14 9-6-16-14-16-4 6-4 6z" fill="url(#cream)"/>
+      <g fill="#ff3fa4"><circle cx="100" cy="134" r="2.4"/><circle cx="150" cy="140" r="2.4"/><circle cx="200" cy="132" r="2.4"/></g>
+      <g fill="#ffd24a"><circle cx="124" cy="140" r="1.8"/><circle cx="176" cy="142" r="1.8"/></g>
+    </svg>
+    <div class="candles" id="candles"><!-- candles are created from CONFIG.candles --></div>
+  </div>
+
+  <div class="cake__foot">
+    <span class="swipe-hint" aria-hidden="true"></span>
+    <p class="cake__count" aria-live="polite">ანთია: <b id="litCount">0</b></p>
+    <button class="link-btn" type="button" id="blowAll">ყველას ერთად ჩაქრობა</button>
+  </div>
+
+  <p class="cake__sign display" id="sign" aria-hidden="true"><span data-c="opening.after"></span><small data-c="opening.afterSmall"></small></p>
+</section>
+
+<!-- ============ 2. THE PARTY ============ -->
+<main class="party" id="party" aria-hidden="true">
+
+  <section class="hero" id="hero">
+    <span class="blob blob--1" aria-hidden="true"></span>
+    <span class="blob blob--2" aria-hidden="true"></span>
+    <span class="blob blob--3" aria-hidden="true"></span>
+    <div class="floor" aria-hidden="true"><i></i></div>
+    <div class="balloons" id="balloons"></div>
+    <p class="pop-counter" id="popCounter" aria-live="polite">🎈 <b id="popCount">0</b> / <span id="popGoal"></span></p>
+
+    <div class="hero__inner">
+      <p class="tag hi" style="--d:.1s" data-c="hero.tag"></p>
+      <h1 class="sr-only" id="heroTitle" tabindex="-1"></h1>
+      <p class="hero__name display hi" style="--d:.25s" data-c="name" aria-hidden="true"></p>
+      <p class="hero__age hi" style="--d:.45s" data-c="age" aria-hidden="true"></p>
+      <p class="hero__sub hi" style="--d:.7s" data-c="hero.sub"></p>
+      <div class="hero__meta hi" style="--d:.9s">
+        <span class="chip"><svg class="i" aria-hidden="true"><use href="#i-cal"/></svg><span data-c="dateText"></span></span>
+        <span class="chip"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg><span data-c="timeText"></span></span>
+        <span class="chip"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span data-c="place.short"></span></span>
+      </div>
+    </div>
+    <p class="hero__hint" data-c="hero.hint"></p>
+  </section>
+
+  <section class="sec count" id="countdown">
+    <div class="wrap center">
+      <span class="tag rv">უკუთვლა</span>
+      <h2 class="h2 display rv" style="--d:.1s" data-c="countdown.title"></h2>
+      <div class="count__grid" id="countGrid" role="timer">
+        <div class="count__cell pop-in" style="--d:.1s"><span class="count__num" data-unit="d"><span>00</span></span><span class="count__lbl">დღე</span></div>
+        <div class="count__cell pop-in" style="--d:.2s"><span class="count__num" data-unit="h"><span>00</span></span><span class="count__lbl">საათი</span></div>
+        <div class="count__cell pop-in" style="--d:.3s"><span class="count__num" data-unit="m"><span>00</span></span><span class="count__lbl">წუთი</span></div>
+        <div class="count__cell pop-in" style="--d:.4s"><span class="count__num" data-unit="s"><span>00</span></span><span class="count__lbl">წამი</span></div>
+      </div>
+      <p class="count__done" id="countDone" hidden data-c="countdown.done"></p>
+    </div>
+  </section>
+
+  <section class="sec" id="where" style="background: var(--night-2)">
+    <div class="wrap center">
+      <span class="tag rv">სად და როდის</span>
+      <h2 class="h2 display rv" style="--d:.1s" data-c="ticket.title"></h2>
+      <article class="ticket rv" style="--d:.2s" id="ticket">
+        <div class="ticket__main" style="text-align:left">
+          <p class="ticket__brand"><b data-c="ticket.brand"></b><span data-c="ticket.type"></span></p>
+          <h3 class="display" data-c="ticket.heading"></h3>
+          <dl class="ticket__grid">
+            <div><dt>თარიღი</dt><dd data-c="dateText"></dd></div>
+            <div><dt>დრო</dt><dd data-c="timeText"></dd></div>
+            <div class="full"><dt>ადგილი</dt><dd data-c="place.name"></dd></div>
+            <div class="full"><dt>მისამართი</dt><dd data-c="place.address" style="font-weight:500;font-size:1rem"></dd></div>
+          </dl>
+          <div class="ticket__actions">
+            <a class="btn btn--pink" id="mapBtn" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>რუკაზე ნახვა</a>
+            <button class="btn btn--ghost" type="button" id="calBtn"><svg class="i" aria-hidden="true"><use href="#i-cal"/></svg>კალენდარში</button>
+          </div>
+        </div>
+        <div class="ticket__stub" aria-hidden="true">
+          <span class="barcode"></span>
+          <span class="ticket__no" data-c="ticket.number"></span>
+          <span>ADMIT ONE</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec theme" id="theme">
+    <div class="wrap theme__inner">
+      <div class="disco pop-in" aria-hidden="true">
+        <span class="disco__string"></span>
+        <span class="disco__rays"></span>
+        <span class="disco__ball"><span class="disco__tiles"></span><span class="disco__shine"></span></span>
+        <span class="disco__sparks"><i></i><i></i><i></i></span>
+      </div>
+      <div>
+        <span class="tag rv">წვეულების თემა</span>
+        <h2 class="theme__title display rv" style="--d:.1s"><span data-c="theme.name"></span><span data-c="theme.sub"></span></h2>
+        <p class="lead rv" style="--d:.2s; margin-left:0" data-c="theme.text"></p>
+        <ul class="dress rv" style="--d:.3s" id="dress"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="vibes" style="padding-bottom: 60px">
+    <div class="wrap center">
+      <span class="tag rv">განწყობა</span>
+      <h2 class="h2 display rv" style="--d:.1s" data-c="vibesTitle"></h2>
+    </div>
+    <div class="vibes" id="vibesRow"><!-- rendered from CONFIG.vibes --></div>
+    <p class="vibes-hint">← გადაფურცლე →</p>
+  </section>
+
+  <section class="sec rsvp" id="rsvp">
+    <div class="wrap center">
+      <span class="tag rv">RSVP</span>
+      <h2 class="h2 display rv" style="--d:.1s" data-c="rsvp.title"></h2>
+      <p class="lead rv" style="--d:.2s" data-c="rsvp.text"></p>
+      <div class="rsvp__card rv" style="--d:.25s">
+        <label class="field"><span>შენი სახელი</span><input type="text" id="guestName" autocomplete="given-name" placeholder="მაგ. ნინი"><small class="err" id="nameErr"></small></label>
+        <label class="field"><span>რა სიმღერა ჩავრთოთ? <small>(არასავალდებულო)</small></span><input type="text" id="song" placeholder="მაგ. Dancing Queen"></label>
+        <div class="answers" role="group" aria-label="მოხვალ?">
+          <button class="answer answer--yes" type="button" data-answer="yes" aria-pressed="false"><span class="emo" aria-hidden="true">🎉</span>მოვდივარ!</button>
+          <button class="answer" type="button" data-answer="maybe" aria-pressed="false"><span class="emo" aria-hidden="true">🤔</span>ალბათ</button>
+          <button class="answer" type="button" data-answer="no" aria-pressed="false"><span class="emo" aria-hidden="true">😢</span>ვერ მოვალ</button>
+        </div>
+        <p class="reply" id="reply" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p class="foot__big display" data-c="footer"></p>
+    <a class="foot__by" id="madeBy" href="../../index.html">Made by <b>MOMENTLY</b></a>
+  </footer>
+</main>
+
+<button class="music" id="musicBtn" type="button" aria-pressed="false" aria-label="მუსიკის ჩართვა"><svg class="i" aria-hidden="true"><use href="#i-music"/></svg><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
